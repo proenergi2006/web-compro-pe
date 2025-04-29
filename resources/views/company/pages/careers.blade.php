@@ -8,33 +8,33 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">Careers</h1>
+                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">  {!! __('message.title_career') !!}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="rs-postbox-area section-space">
+    <section class="rs-postbox-area section-space-bottom">
         <div class="container">
             <div class="row g-5">
                 <div class="col-xl-12 col-lg-12">
                     <div class="rs-postbox-details-wrapper">
-                        <div class="rs-postbox-content">
+                        <div class="rs-postbox-content rs-split-text-enable split-in-fade">
                             <h3 class="rs-postbox-details-title">
-                                Notice on Recruitment Scams
+                                {!! __('message.sub') !!}
                             </h3>
                         </div>
                         <div class="rs-postbox-details-content">
-                            <p style="white-space: pre-line;">It has come to our attention that fictitious job offers are being made by individuals, organizations and published in various Internet sites, which claim that they are representing Pro Energi. Please be aware that these are fraudulent and not originating from Pro Energi.
-
-                                We are sincerely sorry for any inconveniences caused. Please find below useful information:
+                            <p style="white-space: pre-line;">  {!! __('message.content_career') !!}
+                                <h6 class="wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">   {!! __('message.ol') !!}</h6>
+                                <ol type="1"  class="wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">
+                                    <li>   {!! __('message.li_1') !!}</li>
+                                    <li>   {!! __('message.li_2') !!}</li>
+                                    <li>   {!! __('message.li_3') !!}</li>
+                                </ol>
                                
-                               Pro Energi never requests for any payments from applicants, or appoints any travel agents, representatives or individuals to act on behalf of the Company to order or receive payments of land, sea, or air transportation during the recruitment process.
-                               
-                               Official announcement on job vacancy of Pro Energi Indonesia is only available through this website. Any email communications will be originated from official Pro Energi website : <a class="" href="www.proenergi.com">www.proenergi.com</a>
-                               
-                               If you find any fraudulent recruitment activities, published on behalf of Pro Energi, please report and provide the supporting evidence to <a href="mailto:hrd@proenergi.com"> hrd@proenergi.com</a></p>
+                          </p>
                            
                         </div>
                     </div>

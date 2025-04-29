@@ -207,6 +207,17 @@ class ArticleController extends Controller
         }
     }
 
+    public function draftArticle($id)
+    {
+       $updated= Article::where('id',$id)->update(['status'=>'0']);
+        // Mengecek apakah update berhasil
+        if ($updated) {
+            return redirect()->route('admin.articles')->with('success', 'Artikel berhasil di-arsipkan!');
+        } else {
+            return redirect()->route('admin.articles')->with('error', 'Terjadi kesalahan saat arsip artikel.');
+        }
+    }
+
     public function trashedArticle(){
         $articles = Article::onlyTrashed()->paginate(10);
         return view('admin.pages.article.trashed', compact('articles'));

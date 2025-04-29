@@ -8061,13 +8061,14 @@ html.lenis body {
   }
 }
 .rs-banner-nine .rs-banner-title {
-  font-size: 60px;
+  font-size: 50px;
   color: var(--rs-white);
   text-transform: capitalize;
   line-height: 1.15;
   position: relative;
+  display: block;
   margin-bottom: 15px;
-   transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
   will-change: transform;
 }
 @media only screen and (max-width: 1366px) {
@@ -12662,6 +12663,10 @@ html.lenis body {
   }
 }
 .rs-about-eight.has-theme-green .rs-about-shape-two img {
+  animation: rs-leftright 2s alternate infinite;
+  -webkit-animation: rs-leftright 2s alternate infinite;
+}
+.rs-about-shape-two {
   animation: rs-leftright 2s alternate infinite;
   -webkit-animation: rs-leftright 2s alternate infinite;
 }
@@ -19526,6 +19531,17 @@ html.lenis body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
 }
+
+.rs-contact-four .rs-contact-input .nice-select {
+  width: 50%;
+  height: 52px;
+  outline: 0;
+  padding: 0 25px;
+  color: var(--rs-white);
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
 .rs-contact-one .rs-contact-input input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -21557,19 +21573,35 @@ html.lenis body {
   border-left: 1px dashed #616161;
   top: 60px;
 }
+.rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-photo::before {
+  content: "";
+  position: absolute;
+  height: 30%;
+  border-left: 1px dashed #616161;
+  top: 150px;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
-    top: 75px;
+    top: 150px;
+  }
+  .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
+    top: 150px;
   }
 }
 @media only screen and (max-width: 767px) {
   .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
-    top: 75px;
+    top: 100px;
+  }
+  .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
+    top: 100px;
   }
 }
 @media only screen and (max-width: 767px) {
   .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
-    top: 75px;
+    top: 100px;
+  }
+  .rs-work-step-two .rs-work-step-wrapper :not(:last-child) .rs-work-step-number::before {
+    top: 100px;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -21579,6 +21611,13 @@ html.lenis body {
     height: 60%;
     border-left: 1px dashed #616161;
     top: 70px;
+  }
+  .rs-work-step-two .rs-work-step-wrapper:last-child .rs-work-step-photo::before {
+    content: "";
+    position: absolute;
+    height: 30%;
+    border-left: 1px dashed #616161;
+    top: 150px;
   }
 }
 .rs-work-step-two .rs-work-step-item {
@@ -21605,6 +21644,19 @@ html.lenis body {
   justify-content: center;
   width: 54px;
   height: 54px;
+  border-radius: 2px;
+  background: var(--rs-black);
+  color: var(--rs-white);
+  font-size: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.rs-work-step-two .rs-work-step-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: auto;
   border-radius: 2px;
   background: var(--rs-black);
   color: var(--rs-white);
@@ -23930,7 +23982,9 @@ html.lenis body {
   border-top: 0;
   overflow: auto;
 }
-
+.slide-down {
+  animation: slide-down 20s ease-out;
+}
 .ui-autocomplete {
   top: 0;
   left: 0;

@@ -1,5 +1,9 @@
 @extends('company.layout.main')
 
+@section('css')
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+@endsection
+
 @section('content')
     <!-- breadcrumb area start -->
     <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
@@ -8,7 +12,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">Services</h1>
+                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">{!! __('message.title_services') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -16,11 +20,11 @@
     </section>
 
         <!-- services area start -->
-        <section class="rs-services-area section-space mt-5 rs-services-one p-relative">
+        <section class="rs-services-area section-space mt-5 rs-services-one rs-portfolio-eight p-relative">
             <div class="container">
                 <div class="row g-5 section-title-space align-items-center">
                     <div class="rs-section-title-wrapper">
-                        <h6 class="rs-section-title rs-split-text-enable split-in-fade text-center"><i style="color: #db4052">“Pro Energi will guarantee the quality and quantity of our product and provide the best services for our customers.”</i></h6>
+                        <h6 class="rs-section-title rs-split-text-enable split-in-fade text-center"><i style="color: #db4052">{!! __('message.quote_services') !!}</i></h6>
                     </div>
                 </div>
                 <div class="row g-5">
@@ -29,7 +33,7 @@
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-item-one-tab" data-bs-toggle="pill" data-bs-target="#pills-item-one" type="button" role="tab" aria-controls="pills-item-one" aria-selected="true">
-                                        SUPPLY CHAIN <span class="rs-services-icon"><svg
+                                        {!! __('message.title_supply') !!}<span class="rs-services-icon"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12"
                                     fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -39,7 +43,7 @@
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-item-two-tab" data-bs-toggle="pill" data-bs-target="#pills-item-two" type="button" role="tab" aria-controls="pills-item-two" aria-selected="false"> FACILITY<span class="rs-services-icon"><svg
+                                    <button class="nav-link" id="pills-item-two-tab" data-bs-toggle="pill" data-bs-target="#pills-item-two" type="button" role="tab" aria-controls="pills-item-two" aria-selected="false"> {!! __('message.facility') !!}<span class="rs-services-icon"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 0 18 12"
                                     fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -56,13 +60,17 @@
                             <div class="tab-content rs-services-tab-anim" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-item-one" role="tabpanel" aria-labelledby="pills-item-one-tab" tabindex="0">
                                     <div class="rs-services-tab-content-wrapper p-relative">
-                                        <div class="row">
+                                        <div class="row rs-contact-three">
                                             <div class="mb-4 rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                <h3 class="rs-services-tab-title text-center" style="color: #db4052">SUPPLY CHAIN</h3>
+                                                <h3 class="rs-services-tab-title text-center" style="color: #db4052"> {!! __('message.title_supply') !!}</h3>
                                             </div>
-                                            <div class="rs-services-tab-content wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                                            {{-- <div class="rs-services-tab-content wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
                                                 <img src="{{ asset('assets/images/pe-service.jpg')}}" alt="image">
+                                            </div> --}}
+                                            <div class="rs-contact-thumb rs-image scroll_reveal reveal_left reveal-active">
+                                                <img decoding="async" src="{{ asset('assets/images/pe-service.jpg')}}" alt="image">
                                             </div>
+                                       
                                         </div>
                                         <div class="row">
                                              <!-- feature style 01 -->
@@ -75,7 +83,7 @@
                                                                         LOCO
                                                                     </h5>
                                                                     <div class="rs-feature-descrip">
-                                                                        <p>Customer purchase the fuels by picking it up at Pro Energi's storage.</p>
+                                                                        <p>{!! __('message.loco') !!}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -85,7 +93,7 @@
                                                                         FRANCO
                                                                     </h5>
                                                                     <div class="rs-feature-descrip">
-                                                                        <p>Pro Energi delivers fuels to customer's location by land or sea transportation.</p>
+                                                                        <p>{!! __('message.franco') !!}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -95,7 +103,7 @@
                                                                        Vendor Held Stock (VHS)
                                                                     </h5>
                                                                     <div class="rs-feature-descrip">
-                                                                        <p>Managing oil fuel stock; including maintenance, storage and management, all the way from our depot to the customer location.</p>
+                                                                        <p>{!! __('message.vhs') !!}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -105,8 +113,7 @@
                                                                         Fuel Management System (FMS)
                                                                     </h5>
                                                                     <div class="rs-feature-descrip">
-                                                                        <p>Managing oil fuel stock from our depot up to end user. 
-                                                                        The service includes the facilities, system and manpower for managing the oil fuel.</p>
+                                                                        <p>{!! __('message.fms') !!}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -117,47 +124,141 @@
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <div class="tab-pane fade" id="pills-item-two" role="tabpanel" aria-labelledby="pills-item-two-tab" tabindex="0">
                                     <div class="rs-services-tab-content-wrapper p-relative">
                                         <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                            <h3 class="rs-services-tab-title" style="color: #db4052">FLEET</h3>
+                                            <h3 class="rs-services-tab-title" style="color: #db4052">{!! __('message.fleet') !!}</h3>
                                         </div>
                                         <div class="row">
                                             <div class="col-xl-5 col-lg-5">
                                                 <div class="rs-portfolio-item">
+                                                    <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rs-portfolio-content">
+                                                        <h5 class="rs-portfolio-title underline has-white">
+                                                            <a>View Image</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="rs-portfolio-btn">
+                                                        <a class="rs-btn has-theme-light-green has-circle has-icon" href="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="rs-portfolio-item">
                                                     <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
                                                         <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 {{-- <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image"> --}}
                                             </div>
                                             <div class="col-xl-7 col-lg-7">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p>5,000 Liters and 8,000 Liters</p>
+                                                    <p>5,000 Liters {!! __('message.and') !!} 8,000 Liters</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xl-5 col-lg-4">
-                                                 <div class="rs-portfolio-item">
+                                                <div class="rs-portfolio-item">
+                                                    <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rs-portfolio-content">
+                                                        <h5 class="rs-portfolio-title underline has-white">
+                                                            <a>View Image</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="rs-portfolio-btn">
+                                                        <a class="rs-btn has-theme-light-green has-circle has-icon" href="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                 {{-- <div class="rs-portfolio-item">
                                                     <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
                                                         <img src="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" alt="image">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                
                                             </div>
                                             <div class="col-xl-7 col-lg-7">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p>10,000 Liters and 16,000 Liters</p>
+                                                    <p>10,000 Liters {!! __('message.and') !!} 16,000 Liters</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <hr>
+                                        <div class="rs-services-tab-content wow fadeInLeft mt-4" data-wow-delay=".7s" data-wow-duration="1s">
+                                            <h3 class="rs-services-tab-title" style="color: #db4052">{!! __('message.storage') !!}</h3>
+                                        </div>
                                         <div class="row mb-5">
                                             <div class="col-xl-5 col-lg-5">
-                                                <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <img src="{{ asset('assets/images/storage/Vopak2.jpg')}}" alt="image">
+                                                <div class="rs-portfolio-item">
+                                                    <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/storage/Vopak2.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/storage/Vopak2.jpg')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rs-portfolio-content">
+                                                        <h5 class="rs-portfolio-title underline has-white">
+                                                            <a>View Image</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="rs-portfolio-btn">
+                                                        <a class="rs-btn has-theme-light-green has-circle has-icon" href="{{ asset('assets/images/storage/Vopak2.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                {{-- <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+                                                    <img src="{{ asset('assets/images/storage/Vopak2.jpg')}}" alt="image">
+                                                </div> --}}
                                             </div>
                                             <div class="col-xl-7 col-lg-7">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
@@ -170,9 +271,39 @@
                                         </div>
                                         <div class="row mb-5">
                                             <div class="col-xl-5 col-lg-5">
-                                                <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <img src="{{ asset('assets/images/storage/FOTO-DMT-1.jpg')}}" alt="image">
+                                                <div class="rs-portfolio-item">
+                                                    <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/storage/FOTO-DMT-1.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/storage/FOTO-DMT-1.jpg')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rs-portfolio-content">
+                                                        <h5 class="rs-portfolio-title underline has-white">
+                                                            <a>View Image</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="rs-portfolio-btn">
+                                                        <a class="rs-btn has-theme-light-green has-circle has-icon" href="{{ asset('assets/images/storage/FOTO-DMT-1.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                {{-- <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+                                                    <img src="{{ asset('assets/images/storage/FOTO-DMT-1.jpg')}}" alt="image">
+                                                </div> --}}
                                             </div>
                                             <div class="col-xl-7 col-lg-7">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
@@ -184,9 +315,39 @@
                                         </div>
                                         <div class="row mb-5">
                                             <div class="col-xl-5 col-lg-5">
-                                                <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <img src="{{ asset('assets/images/storage/ptt.jpeg')}}" alt="image">
+                                                <div class="rs-portfolio-item">
+                                                    <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/storage/ptt.jpeg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/storage/ptt.jpeg')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rs-portfolio-content">
+                                                        <h5 class="rs-portfolio-title underline has-white">
+                                                            <a>View Image</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="rs-portfolio-btn">
+                                                        <a class="rs-btn has-theme-light-green has-circle has-icon" href="{{ asset('assets/images/storage/ptt.jpeg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                {{-- <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+                                                    <img src="{{ asset('assets/images/storage/ptt.jpeg')}}" alt="image">
+                                                </div> --}}
                                             </div>
                                             <div class="col-xl-7 col-lg-7">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
@@ -205,4 +366,18 @@
             </div>
         </section>
         <!-- services area end -->
+@endsection
+
+@section('script')
+<script type="module">
+    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+    
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '.rs-portfolio-btn',
+        children: 'a',
+        pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+    });
+    
+    lightbox.init();
+    </script>
 @endsection

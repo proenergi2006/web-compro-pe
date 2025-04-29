@@ -15,37 +15,37 @@
                     <nav id="mobile-menu" class="main-menu">
                         <ul class="multipage-menu">
                             <!-- about menu -->
-                            <li class="has-mega-menu {{ request()->is('about') ? 'active' : '' }}">
-                                <a href="/about">About Us</a>
-                              
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/about') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/about') }}">{{ __('message.nav_about') }}</a>
                             </li>
-                            <li class="has-mega-menu {{ request()->is('product') ? 'active' : '' }}">
-                                <a href="/product">Products</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/product*')  ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/product') }}">{{ __('message.nav_product') }}</a>
                             </li>
-                            <li class="has-mega-menu {{ request()->is('services') ? 'active' : '' }}">
-                                <a href="/services">Service</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/services') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/services') }}">{{ __('message.nav_service') }}</a>
                             </li>
-                            <li class="has-mega-menu {{ request()->is('networks') ? 'active' : '' }}">
-                                <a href="/networks">Networks</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/networks') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/networks') }}">{{ __('message.nav_network') }}</a>
                             </li>
-                           
-                            <li class="has-mega-menu {{ request()->is('articles') ? 'active' : '' }}">
-                                <a href="/articles">News & Articles</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/*articles') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/articles') }}">{{ __('message.nav_news') }}</a>
                             </li>
 
-                            <li class="has-mega-menu {{ request()->is('careers') ? 'active' : '' }}">
-                                <a href="/careers">Careers</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/careers') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/careers') }}">{{ __('message.nav_career') }}</a>
                             </li>
                            
-                            <li class="has-mega-menu {{ request()->is('contact') ? 'active' : '' }}">
-                                <a href="/contact">Contact</a>
+                            <li class="has-mega-menu {{ request()->is(app()->getLocale() . '/contact') ? 'active' : '' }}">
+                                <a href="{{ url(app()->getLocale() . '/contact') }}">{{ __('message.nav_contact') }}</a>
                                
                             </li>
+                            <a href="{{ url('/en') }}"> 🇬🇧 English</a> |
+                            <a href="{{ url('/id') }}">🇮🇩 Indonesia</a>
                         </ul>
                     </nav>
                 </div>
-                <div class="rs-header-right">
-                    <!-- search area start -->
+                {{-- <div class="rs-header-right">
+             
                     <div class="rs-header-search-wrapper">
                         <div class="rs-header-search-icon">
                             <i class="ri-close-fill has-close"></i>
@@ -59,7 +59,7 @@
                         </form>
                     </div>
                   
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

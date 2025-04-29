@@ -18,10 +18,11 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('thumbnail');
-            $table->string('description');
+            $table->string('content');
             $table->unsignedBigInteger('created_by');
-            $table->integer('status');
+            $table->string('status',1);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('created_by')->references('id')->on('users');
 

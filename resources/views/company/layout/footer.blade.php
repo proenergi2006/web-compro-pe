@@ -5,12 +5,12 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-12">
-                        <div class="rs-footer-copyright has-theme-deep-blue text-center">
+                        <div class="rs-footer-copyright text-center">
                             <p>  
-                               <i class="ri-twitter-x-line"></i>
-                               <i class="ri-facebook-fill"></i>
-                               <i class="ri-linkedin-fill"></i>
-                               <i class="ri-instagram-line"></i>
+                               <a href="https://twitter.com/proenergi" target="_blank" title="twitter"><i class="ri-twitter-x-line"></i></a>
+                               <a href="https://www.facebook.com/PT-Pro-Energi-193161970784686/" target="_blank" title="facebook"><i class="ri-facebook-fill"></i></a>
+                               <a href="https://www.linkedin.com/company/pro-energi" target="_blank" title="linkedin"><i class="ri-linkedin-fill"></i></a>
+                               <a href="https://www.instagram.com/proenergi/" target="_blank" title="googleplus"><i class="ri-instagram-line"></i></a>
                             </p>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="col-xl-12">
                         <div class="rs-footer-copyright text-left">
                             <p class="rs-text-tertiary">
-                                Copyright 2021 PT ProEnergi. All Rights Reserved.
+                                Copyright 2025 PT ProEnergi. All Rights Reserved.
                             </p>
                         </div>
                     </div>

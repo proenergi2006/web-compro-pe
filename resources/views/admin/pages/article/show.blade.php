@@ -25,9 +25,17 @@
                     </div>
                 </div>
                 <a href="{{ route('edit.article', $article->id)}}" class="btn btn-warning"><i data-feather="edit"></i> Edit</a>
-                <button class="btn btn-primary btn-publish" data-id="{{ $article->id }}">
-                    <i data-feather="upload"></i> Publish
-                </button>
+                @if ($article->status == 0)
+                    <button class="btn btn-primary btn-publish" data-id="{{ $article->id }}">
+                        <i data-feather="upload"></i> Publish
+                    </button> 
+                @else
+                    <button class="btn btn-secondary btn-draft" data-id="{{ $article->id }}">
+                        <i data-feather="file-text"></i> Draft
+                    </button> 
+                    
+                @endif
+              
             </div>
         </div>
     </div>
@@ -52,6 +60,25 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 // Redirect ke route publish
                 window.location.href = '/publish-article/' + articleId;
+            }
+        });
+    });
+
+    $('.btn-draft').on('click', function () {
+        const articleId = $(this).data('id');
+
+        Swal.fire({
+            title: '<strong style="font-size: 20px;">Apakah Anda yakin ingin arsip?</strong>',
+            text: "Artikel tidak akan tampil di website.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, arsip!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect ke route publish
+                window.location.href = '/draft-article/' + articleId;
             }
         });
     });

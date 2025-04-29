@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">Contact Us</h1>
+                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">  {!! __('message.title_contact') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -23,13 +23,13 @@
                            {{-- <div class="rs-map-area rs-map-one">
                             </div> --}}
                             <!-- Google map area end-->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.113312314931!2d106.83133901944846!3d-6.233828917368586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eedebde489%3A0xc9edb769a02d0eaf!2sPT.%20Pro%20Energi!5e0!3m2!1sid!2sid!4v1744791367437!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.113312314931!2d106.83133901944846!3d-6.233828917368586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eedebde489%3A0xc9edb769a02d0eaf!2sPT.%20Pro%20Energi!5e0!3m2!1sid!2sid!4v1744791367437!5m2!1sid!2sid" width="660" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         
                         <div class="rs-contact-form rs-contact-four">
-                            <div class="rs-contact-form-bg-thumb" data-background="assets/images/bg/contact-bg-03.png"></div>
+                            <div class="rs-contact-form-bg-thumb" data-background="{{asset('assets/images/bg/contact-bg-03.png')}}"></div>
                             <h3 class="rs-contact-form-title">Let’s Get in Touch</h3>
                            
-                            <form id="contact-form" action="assets/mailer.php" method="POST">
+                            <form id="contact-form" action="{{ url('assets/mailer.php')}}" method="POST">
                                 <div class="row g-4">
                                     <div class="col-md-12">
                                         <div class="rs-contact-input">
@@ -43,7 +43,15 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="rs-contact-input">
-                                            <input id="info" name="name" type="text" placeholder="Your Inquiry">
+                                        <select>
+                                            <option>Choose Subject</option>
+                                            <option>Quotation</option>
+                                            <option>Partnership - Agent</option>
+                                            <option>Partnership - Invetor</option>
+                                            <option>Partnership - Supplier</option>
+                                            <option>Product Information</option>
+                                            <option>Other</option>
+                                        </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -58,13 +66,13 @@
                                     </div>
                                 </div>
                             </form>
-                            <div id="form-messages"></div>
+                            <div id="form-messages" class="text-white"></div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="rs-team-details-content">
-                            <div class="sidebar-widget">
-                                <h5 class="sidebar-widget-title">Head Office</h5>
+                            <div class="sidebar-widget mb-4 wow fadeInLeft" data-wow-delay="1s" data-wow-duration="1s" >
+                                <h5 class="sidebar-widget-title" style="color: #EA5501">HEAD OFFICE</h5>
                                     Gedung Graha Irama, Lt. 6 unit G, Jl. HR. Rasuna Said Blok X1, Kav 1-2, Jakarta 12950
                                     DKI Jakarta - Indonesia
                                     <div class="rs-team-details-info-wrapper">
@@ -90,8 +98,8 @@
                                         </div>
                                     </div>
                             </div>
-                            <div class="sidebar-widget">
-                                <h5 class="sidebar-widget-title">REPRESENTATIVE OFFICE</h5>
+                            <div class="sidebar-widget wow fadeInLeft" data-wow-delay="1s" data-wow-duration="1s">
+                                <h5 class="sidebar-widget-title" style="color: #EA5501">REPRESENTATIVE OFFICE</h5>
                                     <div class="rs-team-details-info-wrapper">
                                         <h6 class="sidebar-widget-title"><u>JAKARTA</u></h6>
                                         Gedung Graha Irama, Lt. 6 unit 6G, Jl. HR. Rasuna Said Blok X1, Kav 1-2, Jakarta 12950

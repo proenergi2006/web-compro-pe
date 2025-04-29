@@ -257,8 +257,8 @@
             wrapper.classList.add("reveal-active");
     
             if (directionClass === 'reveal_left') {
-                reveal_trigger.from(wrapper, 1, { xPercent: -50, ease: Power2.out })
-                    .from(image, 1, { xPercent: 50, scale: 1, delay: -1, ease: Power2.out });
+                reveal_trigger.from(wrapper, 3.5, { xPercent: -100, ease: Power2.out })
+                    .from(image, 3.5, { xPercent: 100, scale: 1, delay: -3.5, ease: Power2.out });
             } else {
                 reveal_trigger.from(wrapper, 1, { xPercent: 50, ease: Power2.out })
                     .from(image, 1, { xPercent: -50, scale: 1, delay: -1, ease: Power2.out });

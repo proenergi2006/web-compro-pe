@@ -9,13 +9,11 @@
                 <div class="col-xl-8 col-lg-8">
                     <div class="rs-postbox-details-wrapper">
                         <div class="rs-postbox-details-thumb">
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="300">
                         </div>
                         <div class="rs-postbox-content">
                             <div class="rs-postbox-meta-list">
-                                
                                 <span class="rs-postbox-meta-text">{{ $article->created_at->format('d M Y')}}</span>
-                              
                             </div>
                             <h3 class="rs-postbox-details-title">
                                 {{ $article->title}}

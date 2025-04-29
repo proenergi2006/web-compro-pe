@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">News & Articles</h1>
+                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">{!! __('message.news') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -28,24 +28,20 @@
                                         <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Thumbnail" width="80" height="auto">
                                
                                     </a>
-                                    <div class="rs-postbox-tag">
+                                    {{-- <div class="rs-postbox-tag">
                                         <a href="blog-details.html">Company</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="rs-postbox-content">
-                                    <div class="rs-postbox-meta-list">
-                                        <div class="rs-postbox-meta-item">
-                                            <span class="rs-postbox-meta-text">{{$article->created_at}}</span>
-                                        </div>
-                                    </div>
+                                    <span class="rs-postbox-meta-text">{{$article->created_at}}</span>
                                     <h3 class="rs-postbox-title">
-                                        <a href="{{ route('web.article.show', $article->slug) }}">{{$article->title}}</a>
+                                        <a href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $article->slug]) }}">{{$article->title}}</a>
                                     </h3>
                                     <div class="rs-postbox-text">
                                         {!! html_entity_decode($article->content) !!}
                                     </div>
                                     <div class="rs-postbox-btn">
-                                        <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ route('web.article.show', $article->slug) }}">Read More
+                                        <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $article->slug]) }}">{!! __('message.read') !!}
                                             <span class="icon-box">
                                     <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                     <path
@@ -65,7 +61,7 @@
                         @empty
                         <div class="col-12">
                             <div class="alert alert-warning text-center">
-                                Belum ada artikel yang tersedia.
+                                {!! __('message.nonews') !!}
                             </div>
                         </div>
                 
@@ -77,7 +73,7 @@
                     <div class="rs-sidebar-wrapper rs-sidebar-sticky">
                         <div class="sidebar-widget mb-30">
                             <div class="sidebar-search">
-                                <form action="#">
+                                <form action="{{ route('web.article.search', ['lang' => app()->getLocale()]) }}">
                                     <div class="sidebar-search-input">
                                         <input type="text" placeholder="Searching..." name="q">
                                         <button type="submit">
@@ -90,12 +86,24 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="sidebar-widget mb-30">
+                            <div class="d-flex flex-column align-items-center">
+                                <h5 class="sidebar-widget-title">{!! __('message.crude') !!}</h5>
+                               
+                                <script type="text/javascript" src="https://www.oil-price.net/TABLE2/gen.php?lang=id"> </script>
+                                 <a href="http://www.oil-price.net/dashboard.php?lang=en#TABLE2">oil price</a>
+                                <script type="text/javascript" src="https://www.oil-price.net/widgets/brent_crude_price_large/gen.php?lang=id"> </script>
+                                <a href="http://www.oil-price.net/dashboard.php?lang=en#brent_crude_price_large">oil price</a>
+        
+                            </div>
+                           
+                        </div>
                    
                         <div class="sidebar-widget mb-30">
-                            <h5 class="sidebar-widget-title">OTHER NEWS & ARTICLES</h5>
+                            <h5 class="sidebar-widget-title">{!! __('message.other') !!}</h5>
                             <div class="sidebar-widget-content">
                                 <div class="sidebar-blog-item-wrapper">
-                                    @foreach ($articles_old as $old)
+                                    @forelse ($articles_old as $old)
                                         
                                     <div class="sidebar-blog-item">
                                         <div class="sidebar-blog-thumb">
@@ -105,7 +113,7 @@
                                         </div>
                                         <div class="sidebar-blog-content">
                                             <h6 class="sidebar-blog-title">
-                                                <a href="{{ route('web.article.show', $old->slug) }}">{{$old->title}}</a>
+                                                <a href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $old->slug]) }}">{{$old->title}}</a>
                                             </h6>
                                             <div class="sidebar-blog-meta">
                                                 <i class="ri-calendar-line"></i>
@@ -113,7 +121,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    @empty
+                                     <p>{{__('message.othercontent')}}</p>
+                                    @endforelse
                                     
                                 </div>
                             </div>

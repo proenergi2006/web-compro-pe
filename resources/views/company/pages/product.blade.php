@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:4em;padding: 14px 50px;">Products</h1>
+                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:4em;padding: 14px 50px;">{!! __('message.title_product') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="row g-5 section-title-space align-items-center">
                     <div class="rs-section-title-wrapper">
-                        <h6 class="rs-section-title rs-split-text-enable split-in-fade text-center"><i style="color: #db4052">“Pro Energi provide a high quality product and ensure that it is environmentally friendly.”</i></h6>
+                        <h6 class="rs-section-title rs-split-text-enable split-in-fade text-center"><i style="color: #db4052">{!! __('message.quotes_pro') !!}</i></h6>
                     </div>
                 </div>
                 <div class="row g-5">
@@ -89,10 +89,7 @@
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p class="rs-services-tab-word "><b>ProDiesel</b> is a High Speed Diesel (HSD), a fuel for industrial or boilers that are designed to burn distillate fuel. 
-                                                        ProDiesel is also often used for high-speed diesel engines in diesel-powered vehicle, as well as on stationary diesel engines. ProDiesel is recommended 
-                                                        for all types of diesel vehicles because it's keeping the machine clean and free of deposits. ProDiesel's quality is in accordance with the specifications 
-                                                        set by the Indonesian Directorate General of Oil and Gas.
+                                                    <p class="rs-services-tab-word ">{!! __('message.prodiesel') !!}
                                                     </p>
                                                 </div>
                                             </div>
@@ -101,25 +98,24 @@
                                                     <img src="{{ asset('assets/images/produk/pe-product-prodiesel-1.png')}}" alt="image">
                                                 </div>
                                                 <div class="mt-4 rs-services-tab-content wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <h6 style="color: #db4052">“ProDiesel is recommended for all types of diesel vehicles, because it’s keeping the machine to stay clean and free of deposits.”</h6>
+                                                    <h6 style="color: #db4052">{!! __('message.prodiesel_quotes') !!}</h6>
                                                     
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="pills-item-two" role="tabpanel" aria-labelledby="pills-item-two-tab" tabindex="0">
+                                <div class="tab-pane" id="pills-item-two" role="tabpanel" aria-labelledby="pills-item-two-tab" tabindex="0">
                                     <div class="rs-services-tab-content-wrapper p-relative">
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8">
-                                                <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p class="rs-services-tab-word "><b>ProDiesel Bio</b> is a High Speed Diesel (HSD) combined with FAME or BioDiesel. 
-                                                        ProDiesel Bio has low sulphur and high cetane, which making it really good for the diesel engines.
+                                                <div class="rs-services-tab-content fadeInLeft">
+                                                    <p class="rs-services-tab-word ">{!! __('message.prodieselbio') !!}
                                                     </p>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4 col-lg-4">
-                                                <div class="rs-services-tab-content wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                                                <div class="rs-services-tab-content fadeInRight">
                                                     <img src="{{ asset('assets/images/produk/pe-product-prodieselbio-1.png')}}" alt="image">
                                                 </div>
                                                 
@@ -132,9 +128,7 @@
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p class="rs-services-tab-word "><b>Fuel oil</b>, (also known as heavy oil, marine fuel or furnace oil) is a fraction obtained from petroleum distillation, 
-                                                        either as a distillate or a residue. Broadly speaking, fuel oil is any liquid fuel that is burned in a furnace or boiler for the generation of heat or used in an engine 
-                                                        for the generation of power, except oils having a flash point of approximately 42 °C (108 °F) and oils burned in cotton or wool-wick burners. In this sense, diesel is a type of fuel oil. Fuel oil is made of long hydrocarbon chains, particularly alkanes, cycloalkanes and aromatics. The term fuel oil is also used in a stricter sense to refer only to the heaviest commercial fuel that can be obtained from crude oil, i.e., heavier than gasoline and naphtha.
+                                                    <p class="rs-services-tab-word ">{!! __('message.mfo') !!}
                                                     </p>
                                                 </div>
                                             </div>
@@ -151,8 +145,7 @@
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p class="rs-services-tab-word "><b>Lubricant</b> is a substance, which serves to reduce the wear between two surfaces moving objects 
-                                                        rubbing together. A liquid material can be categorized as a lubricant if it contains the basic ingredient. New technology applied for engine sustainability by control the viscosity stability.
+                                                    <p class="rs-services-tab-word ">{!! __('message.lubricant') !!}
                                                     </p>
                                                 </div>
                                             </div>
@@ -169,9 +162,7 @@
                                         <div class="row">
                                             <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                    <p class="rs-services-tab-word "><b>Gasoline</b> is a formulated unleaded gasoline. Gasoline High Octane is recommended for vehicles that use gasoline engines 
-                                                        equivalent of technology with electronic fuel injection (EFI) and catalytic converters, as well as for all types of vehicles seeking to improve the performance of the machine. 
-                                                        Gasoline High Octane makes a vehicle work better, more powerful, knock-free and low emissions.
+                                                    <p class="rs-services-tab-word ">{!! __('message.gasoline') !!}
                                                     </p>
                                                 </div>
                                             </div>
