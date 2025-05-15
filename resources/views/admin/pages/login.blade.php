@@ -10,8 +10,7 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href=""{{ asset('assets/images/logo_pe.png')}}" />
-
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/pe-logo-icon.png')}}">
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
 	<title>Sign In | Admin ProEnergi</title>
@@ -30,11 +29,11 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-                    <img src="{{ asset('assets/images/logo_pe.png')}}" class="img-fluid" width="132" height="132" alt="logo">
+                    					<img src="{{ asset('assets/images/logo_pe.png')}}" class="img-fluid" width="132" height="132" alt="logo">
 										{{-- <img src="img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" /> --}}
 									</div>
-                  <form method="POST" action="{{ route('login') }}">
-                    @csrf
+									<form method="POST" action="{{ route('login') }}">
+										@csrf
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
@@ -42,21 +41,21 @@
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
-                        <small>
-                          @if (Route::has('password.request'))
-                              <a class="btn btn-link" href="{{ route('password.request') }}">
-                                  {{ __('Forgot Your Password?') }}
-                              </a>
-                          @endif
-                        </small>
-                                </div>
-                                <div>
-                      {{-- <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
-                        <span class="form-check-label">
-                          Remember me next time
-                        </span>
-                      </label> --}}
+											<small>
+											@if (Route::has('password.request'))
+												<a class="btn btn-link" href="{{ route('password.request') }}">
+													{{ __('Forgot Your Password?') }}
+												</a>
+											@endif
+											</small>
+                                		</div>
+                                		<div>
+									{{-- <label class="form-check">
+										<input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
+										<span class="form-check-label">
+										Remember me next time
+										</span>
+									</label> --}}
 										</div>
 										<div class="text-center mt-3">
 											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>

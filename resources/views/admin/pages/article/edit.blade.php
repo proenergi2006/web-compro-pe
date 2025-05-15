@@ -15,7 +15,7 @@
     <div class="col-12 d-flex">
         <div class="card flex-fill">
             <div class="card-header">
-                <h4 class="card-title mb-0">Add Article</h4>
+                <h4 class="card-title mb-0">Edit Article</h4>
             </div>
             <div class="card-body">
                 @if (session('success'))

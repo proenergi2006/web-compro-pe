@@ -16,6 +16,9 @@ return [
     'ourproduct' => 'OUR PRODUCT',
     'ourservice' => 'OUR SERVICES',
     'ournetwork' => 'OUR NETWORK',
+    'ourcareer'  => 'CAREER',
+    'apply'      => 'APPLY NOW',
+    'work'       => 'Working At Proenergi',
     'about_1'    => 'PT Pro Energi is a fuel provider company established in 2006 and head quartered in Jakarta. Pro Energi is a growing company that continuously moving forward to become a superior commercial fuel provider that constantly meeting its customers’ needs,
                     especially for the segment of manufacturing, mining, commercial, plantation, transportation, construction, also marine and fisheries.',
     'about_2'    => 'Being professionally managed and customer satisfaction oriented, PT Pro Energi keeps doing its best to achieve our ultimate goal to become the leading commercial fuel provider in Indonesia.',
@@ -95,6 +98,8 @@ return [
     'li_1'               => 'Pro Energi never requests for any payments from applicants, or appoints any travel agents, representatives or individuals to act on behalf of the Company to order or receive payments of land, sea, or air transportation during the recruitment process.',
     'li_2'               => 'Official announcement on job vacancy of Pro Energi Indonesia is only available through this website. Any email communications will be originated from official Pro Energi website : <u><a href="www.proenergi.com">www.proenergi.com</a></u>',
     'li_3'               => 'If you find any fraudulent recruitment activities, published on behalf of Pro Energi, please report and provide the supporting evidence to <a href="mailto:hrd@proenergi.com"><u>hrd@proenergi.com</u></a>',
+    'nocareer'           => 'No job vacancies posted yet',
+    'avail'              => 'Available Jobs',
    
     //menu Contact
     'title_contact'       => 'Contact Us',

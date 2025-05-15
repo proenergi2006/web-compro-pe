@@ -17,10 +17,13 @@ return [
     'ourproduct' => 'PRODUK KAMI',
     'ourservice' => 'LAYANAN KAMI',
     'ournetwork' => 'JARINGAN KAMI',
+    'ourcareer'  => 'KARIR',
+    'work'       => 'Bekerja di Proenergi',
     'about_1'    => 'PT Pro Energi adalah penyedia bahan bakar yang didirikan pada tahun 2006 dan berpusat di Jakarta. Sebagai perusahaan yang berkembang, Pro Energi terus menerus berusaha untuk menjadi penyedia bahan bakar komersial unggulan yang selalu dapat memenuhi kebutuhan para pelanggannya, 
                     terutama untuk segmen manufaktur, pertambangan, komersial, perkebunan, transportasi, konstruksi, serta kelautan dan perikanan.',
     'about_2'    => 'Dengan dikelola secara profesional dan berorientasi pada kepuasan pelanggan, PT Pro Energi terus berusaha sebaik mungkin untuk mencapai tujuan kami untuk menjadi penyedia bahan bakar komersial terdepan di Indonesia.',
     'learn'      => 'LEBIH LANJUT',
+    'apply'      => 'LAMAR SEKARANG',
     'login'      => 'Masuk',
     'energy'     => 'Layanan & Solusi Energi',
     'committed'  => 'Komitmen untuk',
@@ -96,7 +99,8 @@ return [
     'li_1'               => 'Pro Energi tidak pernah memungut biaya apapun dari pelamar ataupun menunjuk biro perjalanan, perwakilan ataupun individu tertentu untuk melakukan pemesanan ataupun menerima pembayaran dalam bentuk apapun atas nama Pro Energi, baik untuk transportasi darat, laut, maupun udara selama proses penerimaan karyawan berlangsung.',
     'li_2'               => 'Informasi resmi lowongan pekerjaan karyawan Pro Energi Indonesia hanya diumumkan melalui website <a href="www.proenergi.com">www.proenergi.com</a>',
     'li_3'               => 'Jika Anda menemukan penipuan penerimaan karyawan yang mengatasnamakan Pro Energi, harap melaporkan hal tersebut beserta bukti yang mencurigakan ke <a href="mailto:hrd@proenergi.com"> hrd@proenergi.com</a>',
-
+    'nocareer'           => 'Belum ada lowongan tersedia saat ini',
+    'avail'              => 'Pekerjaan tersedia',
 
     //menu contact
     'title_contact'       => 'Kontak Kami',

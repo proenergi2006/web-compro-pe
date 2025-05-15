@@ -18,12 +18,12 @@
         <section class="rs-team-details-area section-space rs-team-details">
             <div class="container">
                 <div class="row g-5">
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-7 col-lg-7">
                            <!-- Google map area start -->
                            {{-- <div class="rs-map-area rs-map-one">
                             </div> --}}
                             <!-- Google map area end-->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.113312314931!2d106.83133901944846!3d-6.233828917368586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eedebde489%3A0xc9edb769a02d0eaf!2sPT.%20Pro%20Energi!5e0!3m2!1sid!2sid!4v1744791367437!5m2!1sid!2sid" width="660" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.113312314931!2d106.83133901944846!3d-6.233828917368586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eedebde489%3A0xc9edb769a02d0eaf!2sPT.%20Pro%20Energi!5e0!3m2!1sid!2sid!4v1744791367437!5m2!1sid!2sid" width="650" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         
                         <div class="rs-contact-form rs-contact-four">
                             <div class="rs-contact-form-bg-thumb" data-background="{{asset('assets/images/bg/contact-bg-03.png')}}"></div>
@@ -69,14 +69,14 @@
                             <div id="form-messages" class="text-white"></div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-5 col-lg-5">
                         <div class="rs-team-details-content">
                             <div class="sidebar-widget mb-4 wow fadeInLeft" data-wow-delay="1s" data-wow-duration="1s" >
-                                <h5 class="sidebar-widget-title" style="color: #EA5501">HEAD OFFICE</h5>
+                                <h6 class="sidebar-widget-title" style="color: #EA5501">HEAD OFFICE</h6>
                                     Gedung Graha Irama, Lt. 6 unit G, Jl. HR. Rasuna Said Blok X1, Kav 1-2, Jakarta 12950
                                     DKI Jakarta - Indonesia
-                                    <div class="rs-team-details-info-wrapper">
-                                        <div class="rs-team-details-info-item">
+                                    <div class="rs-team-details-info-wrapper p-0">
+                                        <div class="rs-team-details-info-item ">
                                             <span class="rs-team-details-info-title">
                                                 Phone: 
                                             </span>
@@ -93,18 +93,18 @@
                                                 Email:
                                             </span>
                                             <span class="rs-team-details-info-content">
-                                                info@proenergi.com
+                                                <a href="mailto:info@proenergi.com">info@proenergi.com</a>
                                             </span>
                                         </div>
                                     </div>
                             </div>
                             <div class="sidebar-widget wow fadeInLeft" data-wow-delay="1s" data-wow-duration="1s">
-                                <h5 class="sidebar-widget-title" style="color: #EA5501">REPRESENTATIVE OFFICE</h5>
+                                <h6 class="sidebar-widget-title" style="color: #EA5501">REPRESENTATIVE OFFICE</h6>
                                     <div class="rs-team-details-info-wrapper">
                                         <h6 class="sidebar-widget-title"><u>JAKARTA</u></h6>
-                                        Gedung Graha Irama, Lt. 6 unit 6G, Jl. HR. Rasuna Said Blok X1, Kav 1-2, Jakarta 12950
-                                        DKI Jakarta - Indonesia
-                                        <div class="rs-team-details-info-item">
+                                        <p>Gedung Graha Irama, Lt. 6 unit 6G, Jl. HR. Rasuna Said Blok X1, Kav 1-2, Jakarta 12950
+                                        DKI Jakarta - Indonesia</p>
+                                        <div class="rs-team-details-info-item p-0">
                                             <span class="rs-team-details-info-title">
                                                 Phone: 
                                             </span>
@@ -121,7 +121,7 @@
                                                 Email:
                                             </span>
                                             <span class="rs-team-details-info-content">
-                                                info@proenergi.com
+                                                <a href="mailto:info@proenergi.com">info@proenergi.com</a>
                                             </span>
                                         </div>
                                     </div>

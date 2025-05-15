@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('thumbnail');
-            $table->string('content');
+            $table->longText('content');
             $table->unsignedBigInteger('created_by');
             $table->string('status',1);
             $table->timestamps();

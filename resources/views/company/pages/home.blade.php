@@ -85,7 +85,7 @@
 
 @section('content')
         <!-- banner area start -->
-        <section class="rs-banner-area rs-banner-nine rs-swiper">
+        <section class="rs-banner-area rs-banner-nine section-space-bottom rs-swiper">
             <div class="rs-banner-slider-wrapper">
                 <div class="swiper" data-clone-slides="false" data-loop="true" data-speed="2000" data-autoplay="true" data-dots-dynamic="false" data-hover-pause="true" data-effect="fade" data-delay="3000" data-item="1" data-margin="30">
                     <div class="swiper-wrapper">
@@ -434,7 +434,6 @@
             </div>
         </section>
     
-    
 
         <!-- testimonial area start -->
         <section class="rs-testimonial-area section-space rs-testimonial-one primary-bg rs-swiper">
@@ -531,6 +530,39 @@
         </section>
         <!-- blog Style 02 -->
 
+        <!-- video area start -->
+    <div class="rs-video-area section-space rs-video-two jarallax">
+        <div class="container has-large">
+            {{-- <div class="rs-video-bg-thumb jarallax-img" data-background="{{ asset('assets/images/pe-bg/pe-bg-career.jpg')}}"></div> --}}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rs-video-bg-thumb jarallax-img" data-background="{{ asset('assets/images/pe-bg/pe-bg-career.jpg')}}"></div>
+                </div>
+            </div>
+            <div class="row g-6 justify-content-center section-title-spacing align-items-center">
+                <div class="col-xxl-7 col-xl-8 col-lg-8">
+                    <div class="text-center has-theme-red">
+                        <h2 class="rs-video-title rs-split-text-enable split-in-fade"  style="color: #db4052">{{ __('message.ourcareer') }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="row mb-4">
+                    <div class="rs-breadcrumb-title-wrapper text-center">
+                        <h3 class="rs-breadcrumb-title text-white" style="background: #194494b9;display: inline-block;padding: 14px 50px;">{!! __('message.work') !!}</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="rs-testimonial-btn">
+                        <a class="rs-btn has-theme-red has-icon has-bg" href="/{{ app()->getLocale() }}/careers"> <i
+                            class="ri-play-fill"></i>  {{ __('message.apply') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- video area end -->
 @endsection
 @section('script')
 

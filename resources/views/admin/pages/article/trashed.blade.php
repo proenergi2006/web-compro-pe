@@ -31,6 +31,16 @@
                     </thead>
                     <tbody>
                         @foreach ($articles as $article)
+                          @php
+                                  $status = '';
+                                    if ($article->status == '0') {
+                                        $status = '<span class="badge bg-warning">Draft</span>';
+                                    }else if($article->status == '1'){
+                                        $status = '<span class="badge bg-success">Published</span>';
+                                    } else {
+                                        $status = '<span class="badge bg-danger">Archieved</span>';
+                                    }
+                            @endphp 
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $article->title }}</td>
@@ -42,9 +52,9 @@
                                     <span class="text-muted">No image</span>
                                 @endif
                             </td>
-                            <td>{{ $article->status }}</td>
+                            <td>{!! $status !!}</td>
                             <td>{{ $article->user->name ?? '' }} </td>
-                            <td>{{ $article->created_at->format('d M Y') }}</td>
+                            <td>{{  $article->created_at? $article->created_at->format('d M Y') : '-' }}</td>
                             <td><div class="d-flex gap-1">
                                 <button class="btn btn-sm btn-primary btn-restore" data-id="{{ $article->id }}" title="Delete"><i class="align-middle" data-feather="repeat"></i> Restore</button>
                             </div></td>

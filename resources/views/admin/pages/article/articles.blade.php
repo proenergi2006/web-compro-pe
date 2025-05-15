@@ -19,17 +19,18 @@
                 </span>
                 @endif --}}
                
-                <table class="table table-hover my-1" id="articles-table">
+                <table class="table table-hover responsive" id="articles-table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th class="d-none d-xl-table-cell">Thumbnail</th>
+                            <th>Thumbnail</th>
                             <th>Title</th>
-                            <th class="d-none d-xl-table-cell">Slug</th>
-                            <th class="d-none d-xl-table-cell">Status</th>
-                            <th class="d-none d-md-table-cell">Created By</th>
-                            <th class="d-none d-md-table-cell">Created At</th>
-                            <th class="d-none d-md-table-cell">Action</th>
+                            <th>Slug</th>
+                            {{-- <th class="d-none d-xl-table-cell">Status</th> --}}
+                            <th >Status</th>
+                            <th>Created By</th>
+                            <th>Created At</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +66,8 @@
 <script>
     $(document).ready(function() {
         var article=$('#articles-table').DataTable({
+            responsive: true,
+            scrollY:true,
             ajax: '{{ url("/admin-articles/data") }}',
             stateSave: false,
             columns: [

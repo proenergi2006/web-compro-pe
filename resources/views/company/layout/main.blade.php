@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Pro Energi - Energy Service & Solution - ProEnergi</title>
+    <title>Pro Energi - Energy Service & Solution</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="proenergi,minyak,perusahaan,diesel,distribusi">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/pe-logo-icon.png')}}">
     <!-- CSS here -->
@@ -66,12 +67,12 @@
                             </button>
                         </div>
                     </div>
-                    <div class="offcanvas-about mb-30 d-none d-sm-block">
+                    {{-- <div class="offcanvas-about mb-30 d-none d-sm-block">
                         <p> Industrie is a modern factory website. specifically designed for who need construction,
                             firms, oil, architecture and any other small business.
                         </p>
-                    </div>
-                    <div class="offcanvas-gallery d-none d-sm-block">
+                    </div> --}}
+                    {{-- <div class="offcanvas-gallery d-none d-sm-block">
                         <div class="offcanvas-gallery-thumb-wrapper">
                             <div class="offcanvas-popup-thumb">
                                 <a class="popup-image" href="{{ asset('assets/images/gallery/gallery-thumb-01.png')}}">
@@ -104,14 +105,14 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="mobile-menu">
                         <div class="rs-offcanvas-menu mb-25">
                             <nav></nav>
                         </div>
                     </div>
                     <div class="offcanvas-contact mb-30">
-                        <h4 class="offcanvas-title-meta">Contact Info</h4>
+                        {{-- <h4 class="offcanvas-title-meta">Contact Info</h4>
                         <ul>
                             <li class="d-flex align-items-center gap-15">
                                 <div class="offcanvas-contact-icon">
@@ -147,16 +148,7 @@
                                     <a href="mailto:info@gmail.com">info@gmail.com</a>
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                    <div class="offcanvas-social">
-                        <h4 class="offcanvas-title-meta">Subscribe & Follow</h4>
-                        <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>

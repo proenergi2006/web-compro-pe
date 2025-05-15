@@ -57,7 +57,7 @@ class ArticleController extends Controller
             'content' => $article->content,
             'user' => $article->user->name ?? 'No User',
             'status' => $status, 
-            'created_at' => $article->created_at->format('d M Y'),
+            'created_at' => $article->created_at? $article->created_at->format('d M Y') : '-',
             'action' => '<div class="d-flex gap-1">
                     <a href="' . route('edit.article', $article->id) . '" class="btn btn-sm btn-info" title="Edit Article"><i class="align-middle" data-feather="edit"></i></a>
                       <button class="btn btn-sm btn-danger btn-delete" data-id="' . $article->id . '" title="Delete"><i class="align-middle" data-feather="trash-2"></i></button>
@@ -92,9 +92,11 @@ class ArticleController extends Controller
         Article::create([
             'title'     => $request->title,
             'slug'     => Str::slug($request->title),
+            'status'   => 0,
             'thumbnail'   => $thumbnailPath,
             'content'   => $request->content,
-            'created_by'   => $id
+            'created_by'   => $id,
+            'created_at'   => now()
         ]);
     
         return redirect()->route('admin.articles')->with('success', 'Artikel berhasil disimpan!');

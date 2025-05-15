@@ -35,7 +35,7 @@
                                 <div class="rs-postbox-content">
                                     <span class="rs-postbox-meta-text">{{$article->created_at}}</span>
                                     <h3 class="rs-postbox-title">
-                                        <a href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $article->slug]) }}">{{$article->title}}</a>
+                                        <a href="{{ route('web.article.show', ['slug' => $article->slug]) }}">{{$article->title}}</a>
                                     </h3>
                                     <div class="rs-postbox-text">
                                         {!! html_entity_decode($article->content) !!}

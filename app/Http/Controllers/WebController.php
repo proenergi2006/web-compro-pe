@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Vacancy;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -13,7 +15,7 @@ class WebController extends Controller
     public function index()
     {
         $articles = Article::where('status', 1)->latest()->limit(5)->get();
-        return view('company.pages.home',compact('articles'));
+        return view('company.pages.onepage',compact('articles'));
     }
     
     public function articles()
@@ -43,5 +45,18 @@ class WebController extends Controller
         // dd($articles);
         $articles_old = Article::where('status', 1)->oldest()->limit(5)->get();
         return view('company.pages.articles', compact('articles', 'articles_old','query'));
+    }
+
+    public function vacancies()
+    {
+        $vacancies = Vacancy::with('department')->where('status', 1)->latest()->paginate(10);
+        $vacancies_old = Vacancy::where('status', 1)->oldest()->limit(5)->get();
+        return view('company.pages.careers',compact('vacancies','vacancies_old'));
+    }
+
+    public function showVacancy($slug)
+    {
+        $vacancy = Vacancy::where('slug', $slug)->firstOrFail();
+        return view('company.pages.career-detail', compact('vacancy'));
     }
 }
