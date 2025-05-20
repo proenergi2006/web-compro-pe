@@ -178,9 +178,17 @@
                                         $('#addDeptForm')[0].reset();
                                 });
                                 },
-                                error: function(xhr) {
-                                    Swal.fire('Gagal!', xhr.message, 'error');
-                                }
+                                 error: function(xhr, status, error) {
+                                    var errors = xhr.responseJSON.errors;
+                                    var errorMessage = '';
+                                    
+                                    $.each(errors, function(key, value) {
+                                        errorMessage += value + '<br>';
+                                    });
+
+                                    $('#add-modal').modal('show');
+                                    Swal.fire('<h4>Gagal disimpan </h4>', errorMessage, 'error');
+                                },
                             });
                         }else{
                             $('#add-modal').modal('show');

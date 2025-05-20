@@ -6,7 +6,9 @@ use App\Models\Department;
 use App\Models\Province;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
+
 
 class VacancyController extends Controller
 {
@@ -48,7 +50,7 @@ class VacancyController extends Controller
         } else {
             $status = '<span class="badge bg-danger">Archieved</span>';
         }
-
+        $encrypt= Crypt::encrypt($vacancy->id);
         return [
             'id' => $vacancy->id,
             'title' => $vacancy->title,
@@ -56,7 +58,7 @@ class VacancyController extends Controller
             'due_date' => $vacancy->due_date->format('d M Y'),
             'status' => $status,
             'action' => '<div class="d-flex gap-1">
-                    <a href="' . route('edit.vacancy', $vacancy->id) . '" class="btn btn-sm btn-info" title="Edit vacancy"><i class="align-middle" data-feather="edit"></i></a>
+                    <a href="' . route('edit.vacancy', $encrypt) . '" class="btn btn-sm btn-info" title="Edit vacancy"><i class="align-middle" data-feather="edit"></i></a>
                       <button class="btn btn-sm btn-danger btn-delete" data-id="' . $vacancy->id . '" title="Delete"><i class="align-middle" data-feather="trash-2"></i></button>
                     <a href="'. route('show.vacancy', $vacancy->slug).'" class="btn btn-sm btn-primary" title="publish"><i class="align-middle" data-feather="send" ></i></a>
                 </div>'
@@ -127,7 +129,8 @@ class VacancyController extends Controller
      */
     public function edit($id)
     {
-        $vacancy = Vacancy::findOrFail($id);
+        $decrypt=Crypt::decrypt($id);
+        $vacancy = Vacancy::findOrFail($decrypt);
         $departments = Department::all();
         return view('admin.pages.vacancy.edit', compact('vacancy','departments'));
     }
@@ -178,16 +181,19 @@ class VacancyController extends Controller
     public function destroy($id)
     {
         $vacancy = Vacancy::find($id);
+        $vacancy->status = 2;  // Ubah status ke 3
+        $vacancy->save();      // Simpan perubahan
+
         $deleted = $vacancy->delete();
         if ($deleted) {
             return response()->json([
                 'success' => true,
-                'message' => 'Product berhasil dihapus.'
+                'message' => 'lowongan pekerjaan berhasil dihapus.'
             ]);
         } else {
             return response()->json([
                 'error' => true,
-                'message' => 'Product gagal dihapus.'
+                'message' => 'lowongan pekerjaan gagal dihapus.'
             ]);
         }
     }

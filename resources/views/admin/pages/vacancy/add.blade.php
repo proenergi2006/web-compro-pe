@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-7 mb-3">
                             <label class="form-label">Department</label>
-                            <select name="department_id" class="form-select mb-3">
+                            <select name="department_id" class="form-select mb-3" required>
                                 <option value="" selected>choose department</option>
                                 @foreach ($departments as $dept)
                                     <option value="{{ $dept->id }}">{{ $dept->name }}</option>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-7 mb-3">
                             <label class="form-label">Work Location</label>
-                            <select name="location_id" class="form-select mb-3 location_id">
+                            <select name="location_id" class="form-select mb-3 location_id" required>
                                 <option value="" selected>choose work location</option>
                                 @foreach ($provinces as $prov)
                                     <option value="{{ $prov->id }}">{{ $prov->name }}</option>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-md-7 mb-3">
                             <label class="form-label">Employee Status</label>
-                            <select name="employee_status" class="form-select mb-3">
+                            <select name="employee_status" class="form-select mb-3" required>
                                 <option value="" selected>choose employee status</option>
                                 <option value="permanent">Permanet</option>
                                 <option value="contract">Contract</option>

@@ -111,7 +111,7 @@
                             type: 'DELETE',
                             success: function (response) {
                                 Swal.fire('Berhasil!', response.message, 'success')
-                                    .then(() => reloadArticlesTable());
+                                    .then(() => reloadVacanciesTable());
                             },
                             error: function () {
                                 Swal.fire('Gagal!', 'Terjadi kesalahan.', 'error');

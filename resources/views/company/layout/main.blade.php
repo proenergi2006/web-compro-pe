@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Pro Energi - Energy Service & Solution</title>
     <meta name="description" content="">
@@ -55,7 +56,7 @@
                 <div class="offcanvas-content">
                     <div class="offcanvas-top d-flex justify-content-between align-items-center mb-20">
                         <div class="offcanvas-logo">
-                            <a class="logo-black" href="index.html"><img src="{{ asset('assets/images/pe-logo-icon.png')}}" alt="logo"></a>
+                            <a class="logo-black" href="/"><img src="{{ asset('assets/images/pe-logo-icon.png')}}" alt="logo"></a>
                         </div>
                         <div class="offcanvas-close">
                             <button class="offcanvas-close-icon animation--flip">

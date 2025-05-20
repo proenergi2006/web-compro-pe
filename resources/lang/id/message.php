@@ -101,6 +101,34 @@ return [
     'li_3'               => 'Jika Anda menemukan penipuan penerimaan karyawan yang mengatasnamakan Pro Energi, harap melaporkan hal tersebut beserta bukti yang mencurigakan ke <a href="mailto:hrd@proenergi.com"> hrd@proenergi.com</a>',
     'nocareer'           => 'Belum ada lowongan tersedia saat ini',
     'avail'              => 'Pekerjaan tersedia',
+    'faq'                => 'Pertanyaan yang sering ditanyakan',
+    'faq_1'              => 'Bagaimana cara untuk mengikuti proses rekrutmen di PT Pro Energi?',
+    'faq_1_content'      => 'Silakan lihat posisi yang sedang dibuka di bagian “career”, pastikan kualifikasi dan persyaratan posisi tersebut sesuai dengan diri Anda, lalu ikuti arahan dari website untuk mengisi data diri dan mengunggah Curriculum Vitae Anda. Jika Anda lolos dari seleksi administrasi maka tim rekrutmen akan menghubungi Anda.',
+    'faq_2'              => 'Setelah saya mengirimkan berkas lamaran, berapa lama saya akan dihubungi oleh tim rekrutmen?',
+    'faq_2_content'      => 'Jika Anda memenuhi persyaratan lowongan pekerjaan, maka akan dihubungi oleh tim rekrutmen maksimal 2 minggu setelah Anda mengirimkan lamaran. Jika setelah 2 minggu Anda belum dihubungi oleh tim kami, data Anda akan tetap kami simpan sebagai database dan akan kami proses dikemudian hari.',
+    'faq_3'              => 'Berapa lama proses rekrutmen di PT Pro Energi?',
+    'faq_3_content'      => 'Untuk proses rekrutmen akan berlangsung sekitar 1-2 bulan hingga Anda dinyatakan diterima di PT Pro Energi.',
+    'faq_4'              => 'Apa saja tahapan rekrutmen di PT Pro Energi?',
+    'faq_4_content'      => '<ol type="a">
+                                <li>Seleksi Administrasi</li>
+                                <li>Psikotes Online</li>
+                                <li>Interview HRD</li>
+                                <li>Interview User</li>
+                                <li>Asesmen Eksternal</li>
+                                <li>Salary Offering</li>
+                                <li>Medical Check Up</li>
+                            </ol>',
+    'faq_5'              => 'Dimana penempatan kerja di PT Pro Energi?',
+    'faq_5_content'      => 'PT Pro Energi memiliki kantor pusat di Jakarta Selatan dan beberapa cabang antara lain : Palembang, Surabaya, Samarinda, Pontianak, dan Banjarmasin. Anda akan diberikan penempatan sesuai dengan lowongan kerja yang Anda lamar (dapat dilihat di tabel lowongan kerja yang sedang dibuka)',
+    'faq_6'              => 'Proses rekrutmen dilakukan secara online atau offline?',
+    'faq_6_content'      => 'Proses rekrutmen yang dilakukan untuk penempatan di kantor cabang dilakukan secara online. Namun proses rekrutmen untuk penempatan di kantor pusat dilakukan secara hybrid (untuk proses interview user, Anda akan diminta untuk datang langsung ke kantor kami).',
+    'faq_7'              => 'Pemberitahuan tentang hasil tes akan disampaikan melalui apa?',
+    'faq_7_content'      => 'Anda akan dihubungi oleh tim rekrutmen kami melalui email / WhatsApp.',
+    'faq_8'              => 'Apabila saya dinyatakan tidak lolos dalam tahapan psikotes online, apakah saya boleh melamar kembali?',
+    'faq_8_content'      => 'Anda dipersilakan untuk melamar kembali setelah 1 tahun.',
+    'faq_9'              => 'Berapa biaya yang diperlukan untuk mengikuti proses rekrutmen di PT Pro Energi?',
+    'faq_9_content'      => 'PT Pro Energi tidak memungut biaya apa pun dalam proses rekrutmen. Waspada terhadap penipuan rekrutmen yang mengatasnamakan PT Pro Energi, kami tidak bekerja sama dengan agen perjalanan manapun. Pastikan Anda mendapatkan invitation untuk mengikuti proses rekrutmen HANYA dari email yang berdomain @proenergi.co.id atau @proenergi.com.',
+
 
     //menu contact
     'title_contact'       => 'Kontak Kami',

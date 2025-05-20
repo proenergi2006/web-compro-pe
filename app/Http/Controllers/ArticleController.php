@@ -6,9 +6,9 @@ use App\Models\Article;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
 
 class ArticleController extends Controller
 {
@@ -49,6 +49,7 @@ class ArticleController extends Controller
             $status = '<span class="badge bg-danger">Archieved</span>';
         }
 
+        $encrypt= Crypt::encrypt($article->id);
         return [
             'id' => $article->id,
             'title' => $article->title,
@@ -59,7 +60,7 @@ class ArticleController extends Controller
             'status' => $status, 
             'created_at' => $article->created_at? $article->created_at->format('d M Y') : '-',
             'action' => '<div class="d-flex gap-1">
-                    <a href="' . route('edit.article', $article->id) . '" class="btn btn-sm btn-info" title="Edit Article"><i class="align-middle" data-feather="edit"></i></a>
+                    <a href="' . route('edit.article', $encrypt) . '" class="btn btn-sm btn-info" title="Edit Article"><i class="align-middle" data-feather="edit"></i></a>
                       <button class="btn btn-sm btn-danger btn-delete" data-id="' . $article->id . '" title="Delete"><i class="align-middle" data-feather="trash-2"></i></button>
                     <a href="'. route('show.article', $article->slug).'" class="btn btn-sm btn-primary" title="publish"><i class="align-middle" data-feather="send" ></i></a>
                 </div>'
@@ -123,7 +124,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::findOrFail($id);
+        $decrypt=Crypt::decrypt($id);
+        $article = Article::findOrFail($decrypt);
         return view('admin.pages.article.edit', compact('article'));
     }
 

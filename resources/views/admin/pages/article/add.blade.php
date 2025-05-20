@@ -39,15 +39,15 @@
                 
                         <div class="mb-3">
                             <label class="form-label">Title</label>
-                            <input class="form-control form-control-lg" type="text" name="title" placeholder="Enter your title" />
+                            <input class="form-control form-control-lg" type="text" name="title" placeholder="Enter your title" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Thumbnail</label>
-                            <input class="form-control" type="file" name="thumbnail" id="thumbnail" accept="image/*">
+                            <input class="form-control" type="file" name="thumbnail" id="thumbnail" accept="image/*" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Content</label>
-                            <textarea name="content" class="form-control" rows="10" id="editor" ></textarea>
+                            <textarea name="content" class="form-control" rows="10" id="editor" required ></textarea>
                         </div>
                        
                         <button type="submit" class="btn btn-primary">Save</button>

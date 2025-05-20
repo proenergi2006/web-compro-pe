@@ -35,7 +35,31 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'location' => 'required|string|max:255',
+        'education' => 'required|string|max:255',
+        'major' => 'required|string|max:255',
+        'experience' => 'required|string',
+        'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        $cvPath = $request->file('cv')->store('cvs', 'public');
+
+        Candidate::create([
+            'id_vacancy' => $request->id_vacancy,
+            'name' => $request->name,
+            'email' => $request->email,
+            'location' => $request->location,
+            'education' => $request->education,
+            'major' => $request->major,
+            'experience' => $request->experience,
+            'cv_path' => $cvPath,
+            'created_at' => now(),
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Data berhasil disimpan!']);
     }
 
     /**

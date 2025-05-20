@@ -31,7 +31,7 @@
                 
                         <div class="mb-3">
                             <label class="form-label">Department Name</label>
-                            <input class="form-control form-control-lg" type="text" name="name"  />
+                            <input class="form-control form-control-lg" type="text" name="name" required  />
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save</button>

@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">{!! __('message.news') !!}</h1>
+                        <h2 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.news') !!}</h2>
                     </div>
                 </div>
             </div>

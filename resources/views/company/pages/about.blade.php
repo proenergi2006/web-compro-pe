@@ -2,6 +2,197 @@
 
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+
+<style>
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  background: #e9d2c5;
+  width: 5px;
+  height: 95%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.timeline-item::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  float: right;
+  padding: 40px 30px 10px 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-content .date {
+  right: auto;
+  left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  left: -15px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: 10px 30px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #f5f5f5;
+}
+
+.timeline-img {
+  width: 30px;
+  height: 30px;
+  background: #fd7e14; /* $primary */
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-top: 25px;
+  margin-left: -15px;
+}
+
+.timeline-card {
+  padding: 0 !important;
+}
+
+.timeline-card p {
+  padding: 0 20px;
+}
+
+.timeline-card a {
+  margin-left: 20px;
+}
+
+.timeline-item .timeline-img-header {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
+    url('https://picsum.photos/1000/800/?random') center center no-repeat;
+  background-size: cover;
+}
+
+.timeline-img-header {
+  height: 200px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-img-header h2 {
+  color: #ffffff;
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+}
+
+blockquote {
+  margin-top: 30px;
+  color: #757575;
+  border-left: 5px solid #3f51b5;
+  padding: 0 20px;
+}
+
+.date {
+  background: #ff4081;
+  display: inline-block;
+  color: #ffffff;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* .timeline-side-image {
+  position: relative;
+  top: 0;
+  left: calc(50% + 40px); 
+  width: 200px;
+  max-width: 90%;
+}
+
+.timeline-side-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2);
+}
+.timeline-item:nth-child(even) .timeline-side-image {
+  left: auto;
+  right: calc(50% + 40px); 
+} */
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 50px;
+  }
+
+  .timeline .timeline-img {
+    left: 50px;
+  }
+
+  .timeline .timeline-content {
+    max-width: 100%;
+    width: auto;
+    margin-left: 70px;
+  }
+
+  .timeline .timeline-item:nth-child(even) .timeline-content {
+    float: none;
+  }
+
+  .timeline .timeline-item:nth-child(odd) .timeline-content::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    top: 30px;
+    left: -15px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #f5f5f5 transparent transparent;
+  }
+  /* .timeline-side-image {
+    position: static;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+  } */
+}
+
+	
+</style>
 @endsection
 
 @section('content')
@@ -12,7 +203,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">{!! __('message.title_about') !!}</h1>
+                        <h1 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.title_about') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -169,12 +360,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="pills-item-two" role="tabpanel" aria-labelledby="pills-item-two-tab" tabindex="0">
                                     <div class="rs-services-tab-content-wrapper p-relative">
-                                        <div class="row g-5">
-                                          
-                                        <!-- work process style 04 -->
-                                        <section class="rs-elements-work-process-area section-space-bottom rs-work-step-two rs-services-nine has-theme-orange-two">
-                                            <div class="container">
-                                                <div class="row  g-5 justify-content-center section-title-space align-items-center">
+                                        <div class="row  g-5 justify-content-center section-title-space align-items-center">
                                                     <div class="col-xxl-8 col-xl-9 col-lg-9">
                                                         <div class="rs-section-title-wrapper text-center">
                                                             {{-- <h4 class="rs-section-title rs-split-text-enable split-in-fade" style="color: #db4052">{!! __('message.title_history') !!}</h4> --}}
@@ -182,113 +368,89 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <div class="row">
-                                                <div class="col-xl-10 col-lg-10">
-                                                    <div class="rs-work-process-content-wrapper">
-                                                        <div class="rs-work-step-wrapper">
-                                                            <div class="rs-work-step-item wow slideInRight" data-wow-delay=".3s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    <a href="{{ asset('assets/images/milestone/2006-2008.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2006-2008.jpg')}}" alt="image">
-                                                                    </a>
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2006-2008.jpg')}}" alt="image"> --}}
-                                                                </span>
-                                                                <div class="rs-why-choose-content">
-                                                                    <h5 class="rs-work-step-title">2006-2008</h5>
-                                                                    <p>
-                                                                        {!! __('message.history_1') !!}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rs-work-step-item wow slideInRight" data-wow-delay=".5s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2009-2010.jpg')}}" alt="image"> --}}
-                                                                    <a href="{{ asset('assets/images/milestone/2009-2010.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2009-2010.jpg')}}" alt="image">
-                                                                    </a>
-                                                                </span>
-                                                                <div class="rs-why-choose-content">
-                                                                    <h5 class="rs-work-step-title">2009-2010</h5>
-                                                                    <p>{!! __('message.history_2') !!}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rs-work-step-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image"> --}}
-                                                                    <a href="{{ asset('assets/images/milestone/2011-2012.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image">
-                                                                    </a>
-                                                                </span>
-                                                                <div class="rs-why-choose-content">
-                                                                    <h5 class="rs-work-step-title">2011-2012</h5>
-                                                                    <p>{!! __('message.history_3') !!}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rs-work-step-item wow fadeInUp" data-wow-delay=".9s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2013-2014.jpg')}}" alt="image"> --}}
-                                                                    <a href="{{ asset('assets/images/milestone/2013-2014.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2013-2014.jpg')}}" alt="image">
-                                                                    </a>
-                                                                </span>
-                                                                <div class="rs-why-choose-content">
-                                                                    <h5 class="rs-work-step-title">2013-2014</h5>
-                                                                    <p>{!! __('message.history_4') !!}</p>
-                                                                </div>
-                                                             
-                                                            </div>
-                                                            <div class="rs-work-step-item wow fadeInUp" data-wow-delay=".9s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    <a href="{{ asset('assets/images/milestone/2011-2012.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image">
-                                                                    </a>
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image"> --}}
-                                                                </span>
-                                                                <div class="rs-why-choose-content">
-                                                                    <h5 class="rs-work-step-title">2015-2016</h5>
-                                                                    <p>{!! __('message.history_5') !!}</p>
-                                                                   
-                                                                </div>
-                                                                {{-- <div class="rs-work-step-descrip">
-                                                                </div> --}}
-                                                            </div>
-                                                            <div class="rs-work-step-item wow fadeInUp" data-wow-delay=".9s" data-wow-duration="1s">
-                                                                <span class="rs-work-step-photo rs-postbox-thumb">
-                                                                    {{-- <img src="{{ asset('assets/images/milestone/2017.jpg')}}" alt="image"> --}}
-                                                                    <a href="{{ asset('assets/images/milestone/2017.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                                                        <img src="{{ asset('assets/images/milestone/2017.jpg')}}" alt="image">
-                                                                    </a>
-                                                                </span>
-                                                                
-                                                                <div class="rs-work-step-descrip">
-                                                                    <div class="rs-why-choose-content">
-                                                                        <h5 class="rs-work-step-title">2017</h5>
-                                                                        <p>
-                                                                            {!! __('message.history_6') !!}
-                                                                        </p>
-                                                                    </div>
-                                                                    
-                                                                </div>
-                                                                {{-- <div class="rs-services-item">
-                                                                    <div class="rs-services-thumb">
-                                                                        <img src="{{ asset('assets/images/milestone/2017.jpg')}}" alt="image">
-                                                                    </div>
-                                                                    <div class="rs-services-content">
-                                                                        <span class="rs-year">2017</span>
-                                                                        <h5 class="rs-services-title"></h5>
-                                                                        <div class="rs-services-descrip">
-                                                                            <p> {!! __('message.history_6') !!}</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> --}}
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="row g-5">
+                                        <section class="timeline">
+                                            <div class="container">
+                                                
+
+                                                <!-- ITEM 1 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInLeft">
+                                                    <a href="{{ asset('assets/images/milestone/2006-2008.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                    <img src="{{ asset('assets/images/milestone/2006-2008.jpg')}}" alt="image" />
+                                                    </a>
+                                                  
+                                                    <h5>2006-2008</h5>
+                                                    <p>{!! __('message.history_1') !!}</p>
                                                 </div>
+                                               
+                                                </div>
+
+                                                <!-- ITEM 2 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInRight">
+                                                    <a href="{{ asset('assets/images/milestone/2009-2010.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                        <img src="{{ asset('assets/images/milestone/2009-2010.jpg')}}" alt="image" />
+                                                    </a>
+                                                    <h5>2009-2010</h5>
+                                                    <p>{!! __('message.history_2') !!}</p>
+                                                </div>
+                                             
+                                                </div>
+
+                                                <!-- ITEM 3 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInLeft">
+                                                     <a href="{{ asset('assets/images/milestone/2011-2012.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                         <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image" />
+                                                    </a>
+                                                    <h5>2011-2012</h5>
+                                                    <p>{!! __('message.history_3') !!}</p>
+                                                </div>
+                                                </div>
+
+                                                <!-- ITEM 4 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInRight">
+                                                    <a href="{{ asset('assets/images/milestone/2013-2014.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                        <img src="{{ asset('assets/images/milestone/2013-2014.jpg')}}" alt="image" />
+                                                    </a>
+                                                    <h5>2013-2014</h5>
+                                                    <p>{!! __('message.history_4') !!}</p>
+                                                </div>
+                                                </div>
+
+                                                <!-- ITEM 5 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInLeft">
+                                                    <a href="{{ asset('assets/images/milestone/2011-2012.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                        <img src="{{ asset('assets/images/milestone/2011-2012.jpg')}}" alt="image" />
+                                                    </a>
+                                                    <h5>2015-2016</h5>
+                                                    <p>{!! __('message.history_5') !!}</p>
+                                                </div>
+                                                </div>
+
+                                                <!-- ITEM 6 -->
+                                                <div class="timeline-item">
+                                                <div class="timeline-img"></div>
+                                                <div class="timeline-content js--fadeInRight">
+                                                    <a href="{{ asset('assets/images/milestone/2017.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                    <img src="{{ asset('assets/images/milestone/2017.jpg')}}" alt="image" />
+                                                    </a>
+                                                    <h5>2017</h5>
+                                                    <p>{!! __('message.history_6') !!}</p>
+                                                </div>
+                                                </div>
+
                                             </div>
-                                            </div>
-                                        </section>
-                                        <!-- work process style 04 -->
+                                            </section>
+
                                         </div>
                                     </div>
                                 </div>
@@ -351,15 +513,71 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
 <script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
     
     const lightbox = new PhotoSwipeLightbox({
-        gallery: '.rs-portfolio-btn, .rs-work-step-photo',
+        gallery: '.rs-portfolio-btn, .rs-work-step-photo, .timeline-side-image',
         children: 'a',
         pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
     });
     
     lightbox.init();
     </script>
+
+     <script>
+        $(function(){
+
+  window.sr = ScrollReveal();
+
+  if ($(window).width() < 768) {
+
+  	if ($('.timeline-content').hasClass('js--fadeInLeft')) {
+  		$('.timeline-content').removeClass('js--fadeInLeft').addClass('js--fadeInRight');
+  	}
+
+  	sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+  } else {
+  	
+  	sr.reveal('.js--fadeInLeft', {
+	    origin: 'left',
+	    distance: '300px',
+		  easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+	  sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+  }
+  
+  sr.reveal('.js--fadeInLeft', {
+	    origin: 'left',
+	    distance: '300px',
+		  easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+	  sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+
+});
+
+</script>
 @endsection

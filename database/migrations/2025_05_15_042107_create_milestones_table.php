@@ -13,10 +13,16 @@ class CreateMilestonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('milestones', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+     Schema::create('milestones', function (Blueprint $table) {
+        $table->id();
+        $table->year('start_year');
+        $table->year('end_year');
+        $table->string('title');
+        $table->string('photo')->nullable(); // Path ke foto atau nama file
+        $table->text('description')->nullable();
+        $table->timestamps();
+    });
+
     }
 
     /**

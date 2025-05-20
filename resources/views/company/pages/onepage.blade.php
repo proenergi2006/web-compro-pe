@@ -216,7 +216,7 @@
                         <div class="rs-portfolio-item">
                             <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                 <a href="{{ asset('assets/images/about/MG_4899.jpg')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
-                                    <img src="{{ asset('assets/images/about/MG_4899.jpg')}}" alt="image">
+                                    <img src="{{ asset('assets/images/about/MG_4899.jpg')}}" data-pswp-width="1200" data-pswp-height="900" alt="image">
                                 </a>
                             </div>
                             <div class="rs-portfolio-content">

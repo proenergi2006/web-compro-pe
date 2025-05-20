@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">{!! __('message.title_services') !!}</h1>
+                        <h1 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.title_services') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -131,8 +131,8 @@
                                             <h3 class="rs-services-tab-title" style="color: #db4052">{!! __('message.fleet') !!}</h3>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xl-5 col-lg-5">
-                                                <div class="rs-portfolio-item">
+                                            <div class="col-xl-4 col-lg-4">
+                                                {{-- <div class="rs-portfolio-item">
                                                     <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                                         <a href="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
                                                             <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image">
@@ -161,23 +161,25 @@
                                                         </span>
                                                         </a>
                                                     </div>
-                                                </div>
-                                                {{-- <div class="rs-portfolio-item">
-                                                    <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                        <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image">
-                                                    </div>
                                                 </div> --}}
+                                                {{-- <div class="rs-portfolio-item"> --}}
+                                                    <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                {{-- </div> --}}
                                                 {{-- <img src="{{ asset('assets/images/truck/trucks_facility1_small.png')}}" alt="image"> --}}
                                             </div>
-                                            <div class="col-xl-7 col-lg-7">
+                                            <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
                                                     <p>5,000 Liters {!! __('message.and') !!} 8,000 Liters</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xl-5 col-lg-4">
-                                                <div class="rs-portfolio-item">
+                                            <div class="col-xl-4 col-lg-4">
+                                                {{-- <div class="rs-portfolio-item">
                                                     <div class="rs-portfolio-thumb wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                                         <a href="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
                                                             <img src="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" alt="image">
@@ -206,15 +208,17 @@
                                                         </span>
                                                         </a>
                                                     </div>
-                                                </div>
-                                                 {{-- <div class="rs-portfolio-item">
-                                                    <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
-                                                        <img src="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" alt="image">
-                                                    </div>
                                                 </div> --}}
+                                                 {{-- <div class="rs-portfolio-item"> --}}
+                                                    <div class="rs-portfolio-thumb wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+                                                        <a href="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" data-pswp-width="1200" data-pswp-height="900" target="_blank">
+                                                            <img src="{{ asset('assets/images/truck/trucks_facility2_small.png')}}" alt="image">
+                                                        </a>
+                                                    </div>
+                                                {{-- </div> --}}
                                                
                                             </div>
-                                            <div class="col-xl-7 col-lg-7">
+                                            <div class="col-xl-8 col-lg-8">
                                                 <div class="rs-services-tab-content wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1s">
                                                     <p>10,000 Liters {!! __('message.and') !!} 16,000 Liters</p>
                                                 </div>
@@ -370,14 +374,15 @@
 
 @section('script')
 <script type="module">
-    import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
-    
-    const lightbox = new PhotoSwipeLightbox({
-        gallery: '.rs-portfolio-btn',
-        children: 'a',
-        pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
-    });
-    
-    lightbox.init();
-    </script>
+import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
+
+const lightbox = new PhotoSwipeLightbox({
+    gallery: '.rs-portfolio-btn, .rs-portfolio-thumb',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+});
+
+lightbox.init();
+</script>
+
 @endsection

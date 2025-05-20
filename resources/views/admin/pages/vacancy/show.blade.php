@@ -50,7 +50,7 @@
                         <i data-feather="upload"></i> Publish
                     </button> 
                 @else
-                    <button class="btn btn-secondary btn-draft" data-id="{{ $vacancy->id }}">
+                    <button class="btn btn-secondary btn-info" data-id="{{ $vacancy->id }}">
                         <i data-feather="file-text"></i> Draft
                     </button> 
                     

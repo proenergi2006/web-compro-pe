@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Candidate extends Model
+class Milestone extends Model
 {
     use HasFactory;
-    protected $fillable = [
-    'id_vacancy','name', 'email', 'location', 'education', 'major', 'experience', 'cv_path'
-    ];
 
     public $timestamps = false;
     protected $casts = [
@@ -18,4 +15,11 @@ class Candidate extends Model
         'updated_at' => 'datetime',
     ];
 
+    protected $fillable = [
+        'start_year',
+        'end_year',
+        'photo',
+        'title',
+        'description',
+    ];
 }

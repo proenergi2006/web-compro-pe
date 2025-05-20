@@ -66,6 +66,9 @@
                     {{ $articles->links() }}
                 </div>
             </div>
+            <div class="card-footer">
+                  <a href="{{ route('admin.articles')}}" class="btn btn-md btn-secondary">Back</a>
+            </div>
         </div>
     </div>
 </div>

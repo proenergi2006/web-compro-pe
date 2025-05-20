@@ -62,11 +62,12 @@ class DepartmentController extends Controller
             'name' => $request->name
         ]);
 
-        if($department){
-            return response()->json(['message' => 'Department berhasil disimpan.']);
-        }else{
-            return response()->json(['message' => 'Department gagal disimpan.']);
-        }
+            return response()->json(['message' => 'success']);
+        // if($department){
+        //     return response()->json(['message' => 'Department berhasil disimpan.']);
+        // }else{
+        //     return response()->json(['message' => 'Department gagal disimpan.']);
+        // }
     }
     /**
      * Display the specified resource.

@@ -60,8 +60,19 @@
                   
                 </div> --}}
                 <div class="rs-header-right">
-                    <a href="{{ url('/en') }}"> 🇬🇧 </a> |
-                    <a href="{{ url('/id') }}">🇮🇩 </a>
+                  @php
+                        $currentUrl = request()->path(); // contoh: 'en/careers' atau 'id/about'
+                        $currentLocale = app()->getLocale(); // 'en' atau 'id'
+                        $newLocaleEn = 'en';
+                        $newLocaleId = 'id';
+
+                        // Ganti locale di URL dengan locale baru
+                        $newUrlEn = preg_replace('/^' . $currentLocale . '/', $newLocaleEn, $currentUrl);
+                        $newUrlId = preg_replace('/^' . $currentLocale . '/', $newLocaleId, $currentUrl);
+                    @endphp
+
+                    <a href="{{ url($newUrlEn) }}">🇬🇧</a> |
+                    <a href="{{ url($newUrlId) }}">🇮🇩</a>
                     <!-- sidebar start -->
                     <div class="rs-header-hamburger toggle-mobile-only">
                         <div class="sidebar-toggle">

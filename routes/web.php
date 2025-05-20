@@ -3,13 +3,17 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\WebController;
+use App\Mail\SendEmail;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +37,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/en'); // default redirect ke bahasa Indonesia
 });
+
+Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
+Route::post('/form-submit', [CandidateController::class, 'store'])->name('form.submit');
+
 Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|id']], function () {
 
     Route::get('/', [WebController::class, 'index']);
@@ -54,7 +62,7 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|id']], function ()
   
     Route::get('/contact', function () {
         return view('company.pages.contact');
-    });
+    })->name('contact');
     //articles compro
     Route::get('/articles', [WebController::class, 'articles']);
     Route::get('/search-articles', [WebController::class, 'searchArticle'])->name('web.article.search');
@@ -76,6 +84,7 @@ Route::get('/pe-admin', function () {
 Route::get('admin-signin', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('admin-signin', [LoginController::class, 'login']);
 Route::post('signout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {

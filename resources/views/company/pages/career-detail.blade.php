@@ -1,5 +1,9 @@
 @extends('company.layout.main')
 
+@section('css')
+{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    
+@endsection
 @section('content')
     <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
         <div class="rs-breadcrumb-bg" data-background="{{ asset('assets/images/pe-bg/career_hi_rev.jpg')}}"></div>
@@ -7,7 +11,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title" style="background: #db4052;display: inline-block;font-size:3em;padding: 14px 50px;">  {!! __('message.title_career') !!}</h1>
+                        <h1 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">  {!! __('message.title_career') !!}</h1>
                     </div>
                 </div>
             </div>
@@ -78,7 +82,7 @@
                 <div class="rs-cart-coupon">
                     <div class="rs-cart-coupon-input  align-items-center">
                         <a href="{{ url(app()->getLocale() . '/careers') }}" class="rs-btn2 has-theme-blue">back</a>
-                        <button type="submit" class="rs-btn2 has-theme-orange">{{ __('message.apply')}}
+                        <button data-bs-toggle="modal" data-bs-target="#wizardModal" class="rs-btn2 has-theme-orange">{{ __('message.apply')}}
                         </button>
                     </div>
                 </div>
@@ -114,4 +118,136 @@
     </section>
     <!-- rs-postbox area end -->
 
+{{-- @include('company.pages.wizard') --}}
+ <!-- Modal -->
+    <div class="modal fade has-theme-orange" id="wizardModal" tabindex="-1" aria-labelledby="wizardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="wizardForm">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Form Wizard</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="id_vacancy" value="{{$vacancy->id}}">
+                        <div class="step step-1">
+                            <div class="mb-3">
+                                <label>Nama:</label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                             <div class="mb-3">
+                                <label>Email:</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Lokasi:</label>
+                                <input type="text" name="location" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Pendidikan Terakhir:</label>
+                                <div class="rs-contact-input">
+                                <select name="education" id="education">
+                                    <option value="">Pilih Pendidikan Terakhir</option>
+                                    <option value="SMA">SMA/SMK</option>
+                                    <option value="D3">D3</option>
+                                    <option value="S1">S1</option>
+                                    <option value="S2">S2</option>
+                                    <option value="S3">S3</option>
+                                </select>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="mb-3">
+                                <label>Jurusan:</label>
+                                <input type="text" name="major" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Pengalaman:</label>
+                                <textarea name="experience" class="form-control" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        <div class="step step-2 d-none">
+                            
+                            <div class="mb-3">
+                                <label>Upload CV (PDF/DOC):</label>
+                                <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary prev-step d-none">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Next</button>
+                        <button type="submit" class="btn btn-success d-none">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+@endsection
+
+@section('script')
+<!-- Don't forget to add it after jQuery and Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        let currentStep = 1;
+
+        function showStep(step) {
+            $('.step').addClass('d-none');
+            $('.step-' + step).removeClass('d-none');
+            $('.prev-step').toggleClass('d-none', step === 1);
+            $('.next-step').toggleClass('d-none', step === 2);
+            $('button[type="submit"]').toggleClass('d-none', step !== 2);
+        }
+
+        $('.next-step').click(function() {
+            if (currentStep === 1) {
+                const name = $('input[name="name"]').val();
+                console.log(name)
+                if (!name) {
+                    alert('Nama wajib diisi!');
+                    return;
+                }
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+
+        $('.prev-step').click(function() {
+            currentStep--;
+            showStep(currentStep);
+        });
+
+        $('#wizardForm').submit(function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            $.ajax({
+                url: '{{ route('form.submit') }}',
+                method: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    alert(res.message);
+                    $('#wizardModal').modal('hide');
+                    $('#wizardForm')[0].reset();
+                    currentStep = 1;
+                    showStep(currentStep);
+                },
+                error: function (err) {
+                    console.log(err)
+                    alert('Terjadi kesalahan. Pastikan semua data benar.');
+                }
+            });
+        });
+
+
+        // Init step
+        showStep(currentStep);
+    </script>
 @endsection

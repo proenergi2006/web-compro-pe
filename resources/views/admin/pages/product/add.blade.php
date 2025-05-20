@@ -3,7 +3,7 @@
 @section('css')
 <style>
     .ck-editor__editable_inline {
-        min-height: 400px;
+        min-height: 300px;
     }
 </style>
 @endsection
@@ -39,15 +39,15 @@
                 
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter product name" />
+                            <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter product name" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Image</label>
-                            <input class="form-control" type="file" name="image" id="image" accept="image/*">
+                            <input class="form-control" type="file" name="image" id="image" accept="image/*" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <textarea name="description" class="form-control" rows="5" id="editor" ></textarea>
+                            <textarea name="description" class="form-control" rows="5" id="editor" required ></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quote</label>
