@@ -9,7 +9,7 @@ class Candidate extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'id_vacancy','name', 'email', 'location', 'education', 'major', 'experience', 'cv_path'
+    'id_vacancy','name', 'email', 'location', 'education', 'major', 'experience', 'cv_path','phone'
     ];
 
     public $timestamps = false;
@@ -17,5 +17,8 @@ class Candidate extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
-
+    public function vacancy()
+    {
+        return $this->belongsTo(Vacancy::class, 'id_vacancy');
+    }
 }

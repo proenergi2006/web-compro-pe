@@ -87,9 +87,9 @@ Route::post('signout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.pages.dashboard');
-    });
+Route::get('/dashboard', function () {
+    return view('admin.pages.dashboard');
+});
 
 //admin articles management
 Route::get('admin-articles', [ArticleController::class, 'index'])->name('admin.articles');
@@ -119,6 +119,9 @@ Route::get('trashed-product', [ProductController::class, 'trashedProduct'])->nam
 Route::post('/restore-product/{id}', [ProductController::class, 'restoreProduct']);
 
 
+});
+
+Route::middleware(['auth', 'role:hr'])->group(function () {
 //admin department management
 Route::get('admin-department', [DepartmentController::class, 'index'])->name('admin.department');
 // Route::get('add-department', [DepartmentController::class, 'create'])->name('add.department');
@@ -139,6 +142,19 @@ Route::get('show-vacancy/{id}', [VacancyController::class, 'show'])->name('show.
 Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
 Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
 Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);
+
+//admin Vacancies management
+Route::get('admin-candidates', [CandidateController::class, 'index'])->name('admin.candidates');
+// Route::get('add-vacancy', [VacancyController::class, 'create'])->name('add.vacancy');
+// Route::post('admin-vacancies', [VacancyController::class, 'store'])->name('store.vacancy');
+Route::get('/admin-candidates/data', [CandidateController::class, 'getData']);
+Route::get('get-candidate/{id}', [CandidateController::class, 'index_candidate'])->name('get.candidates');
+// Route::get('edit-vacancy/{id}', [VacancyController::class, 'edit'])->name('edit.vacancy');
+// Route::put('edit-vacancy/{vacancy}', [VacancyController::class, 'update'])->name('update.vacancy');
+// Route::get('show-vacancy/{id}', [VacancyController::class, 'show'])->name('show.vacancy');
+// Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
+// Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
+// Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);
 });
 
 // Route::get('/company', function () {

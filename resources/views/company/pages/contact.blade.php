@@ -313,7 +313,7 @@
 
             // Ambil data form
             var formData = $(this).serialize();
-//  alert(formData);
+            //  alert(formData);
             // Kirim data menggunakan AJAX
             $.ajax({
                 url: '/post-email',  // Ganti dengan route yang sesuai

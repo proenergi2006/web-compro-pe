@@ -3,7 +3,7 @@
 
 <head>
   
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         .modal-wizard-panel {
@@ -37,14 +37,15 @@
                 }
 
                 .wizard-header {
-                    text-align: center;
+                    text-align: left;
+                    color: white;
                     margin-bottom: 25px;
                 }
 
                 .wizard-header h3 {
                     font-weight: 600;
                     font-size: 22px;
-                    color: #343a40;
+                    color: #403c34;
                 }
 
                 .wizard-steps {
@@ -60,7 +61,7 @@
                     top: 14px;
                     height: 2px;
                     background-color: #dee2e6;
-                    width: 50%;
+                    width: 25%;
                     z-index: 1;
                     transition: background 0.3s ease;
                 }
@@ -83,12 +84,12 @@
                 }
 
                 .step.active {
-                    background-color: #2196F3;
-                    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.2);
+                    background-color: #f37221;
+                    box-shadow: 0 0 0 4px rgba(243, 156, 33, 0.2);
                 }
 
                 .step.completed {
-                    background-color: #2196F3;
+                    background-color: #f38321;
                 }
 
                 .form-step {
@@ -125,14 +126,16 @@
                 }
 
                 .btn-primary {
-                    background-color: #2196F3;
-                    border-color: #2196F3;
+                    background-color: #f38721;
+                    border-color: #f38721;
                     font-weight: 500;
+                    font-size: 14px;
                 }
 
                 .btn-primary:hover {
-                    background-color: #0d8bf2;
-                    border-color: #0d8bf2;
+                    background-color: #f2420d;
+                    border-color: #f2610d;
+                    color:white;
                 }
 
                 .btn-outline-secondary {
@@ -155,14 +158,15 @@
                 }
 
                 .btn-outline-primary {
-                    border: 1px solid #2196F3;
-                    color: #2196F3;
+                    border: 1px solid #f38721;
+                    color: #f38721;
+                     font-size: 14px;
                 }
 
                 .btn-outline-primary:hover {
                     background-color: rgba(52, 167, 234, 0.05);
-                    border-color: #2196F3;
-                    color: #2196F3;
+                    border-color: #f37521;
+                    color: #f37221;
                 }
 
                 .order-details {
@@ -281,12 +285,12 @@
                 }
 
                 .form-check-input:checked {
-                    background-color: #2196F3;
-                    border-color: #2196F3;
+                    background-color: #f38a21;
+                    border-color: #f38721;
                 }
 
                 .custom-input {
-                    border: 1px solid #2196F3;
+                    border: 1px solid #f38721;
                     border-radius: 8px;
                     overflow: hidden;
                     transition: box-shadow 0.2s ease;
@@ -316,10 +320,10 @@
             } */
 
                 .custom-input {
-                    border: 1px solid #34A7EA;
-                    border-radius: 8px;
+                    border: 1px solid #ea7734;
+                    border-radius: 12px;
                     overflow: hidden;
-                    padding: 5px;
+                    padding: 2px;
                 }
 
                 .custom-input .form-control,
@@ -339,14 +343,14 @@
                 }
 
                 .input-group-text i {
-                    color: #2196F3;
-                    font-size: 16px;
+                    color: #f37c21;
+                    font-size: 14px;
                 }
 
                 @media (max-width: 576px) {
-                    body {
+                    /* body {
                         padding: 10px;
-                    }
+                    } */
 
                     .wizard-container {
                         padding: 20px 15px;
@@ -452,7 +456,7 @@
                     flex-direction: column;
                     align-items: center;
                     text-align: center;
-                    color: #28a745;
+                    color: #41d78c;
                     font-size: 48px;
                     margin-bottom: 15px;
                 }
@@ -473,36 +477,38 @@
 <body>
 
     <!-- Modal -->
-    <div class="modal fade " id="exampleModalWizard" tabindex="-1" aria-labelledby="exampleModalWizardLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModalWizard" tabindex="-1" aria-labelledby="exampleModalWizardLabel" aria-hidden="true">
         <div class="modal-wizard-panel modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-body wizard-panel">
                     <!-- <div class="wizard-panel"> -->
                     <!-- <div class="container"> -->
                     <div class="wizard-container">
-                        <div class="wizard-header">
-                            <h3>Pemesanan Paket</h3>
-                        </div>
-
+                            <div class="wizard-header mb-4">
+                                <h3>Lamar ke </h3>
+                            </div>
+                        
                         <div class="wizard-steps">
                             <div class="step-line" id="progress-line"></div>
                             <div class="step active" id="step-1">1</div>
                             <div class="step" id="step-2">2</div>
-                            <div class="step" id="step-3">3</div>
+                            {{-- <div class="step" id="step-3">3</div> --}}
                         </div>
 
                         <!-- Step 1: Contact Information -->
                         <div class="form-step active" id="form-step-1">
                             <div class="step-content">
-                                <h5 class="form-subtitle">Informasi Kontak</h5>
-                                <p class="form-description">Konfirmasi informasi kontak Anda</p>
-
+                                <h5 class="form-subtitle">Informasi Pelamar</h5>
+                                {{-- <p class="form-description">Konfirmasi informasi kontak Anda</p> --}}
+                                 <form id="wizardForm">
+                                     @csrf
+                                 <input type="hidden" name="id_vacancy" value="{{$vacancy->id}}">
                                 <div class="mb-3">
                                     <div class="custom-input input-group">
                                         <span class="input-group-text">
                                             <i class="bi bi-person-fill"></i>
                                         </span>
-                                        <input type="text" name="name" class="form-control" id="contact_name" placeholder="Nama Lengkap" required>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Nama Lengkap" required>
                                     </div>
                                 </div>
 
@@ -511,7 +517,7 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-envelope-fill"></i>
                                         </span>
-                                        <input type="email" name="email" class="form-control" id="contact_email" placeholder="Email" required>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
                                     </div>
                                 </div>
 
@@ -520,19 +526,17 @@
                                         <span class="input-group-text">
                                             <i class="bi bi-phone-fill"></i>
                                         </span>
-                                        <input type="tel" name="phone" class="form-control" id="contact_phone" placeholder="Nomor Telepon" required>
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Nomor Telepon" required>
                                     </div>
                                 </div>
-
                                 <div class="mb-3">
                                     <div class="custom-input input-group">
                                         <span class="input-group-text">
-                                            <i class="bi bi-building-fill"></i>
+                                            <i class="bi bi-phone-fill"></i>
                                         </span>
-                                        <input type="text" name="company" class="form-control" id="contact_company" placeholder="Nama Perusahaan (Opsional)">
+                                        <input type="text" name="location" class="form-control" id="location" placeholder="lokasi" required>
                                     </div>
                                 </div>
-
                                 <div class="action-buttons mt-auto">
                                     <button type="button" class="btn btn-outline-primary btn-action" data-bs-dismiss="modal">Batal</button>
                                     <button type="button" class="btn btn-primary btn-action" onclick="nextStep(1, 2)">Selanjutnya</button>
@@ -543,136 +547,51 @@
                         <!-- Step 2: Package Selection -->
                         <div class="form-step" id="form-step-2">
                             <div class="step-content">
-                                <h5 class="form-subtitle">Pilih Paket Iklan</h5>
-                                <p class="form-description">Pilih paket dan masukkan link tujuan iklan Anda</p>
-
                                 <div class="mb-3">
                                     <div class="custom-input input-group">
                                         <span class="input-group-text">
-                                            <i class="bi bi-box-fill"></i>
+                                            <i class="bi bi-phone-fill"></i>
                                         </span>
-                                        <select name="package" class="form-select" id="ad_package" required>
-                                            <option value="" disabled selected>Pilih paket iklan</option>
-                                            <option value="basic">Basic - Rp 5.500.000</option>
-                                            <option value="standard">Standard - Rp 11.000.000</option>
-                                            <option value="premium">Premium - Rp 16.650.000</option>
+                                        <input type="text" name="experience" class="form-control" id="experience" placeholder="pengalaman" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="custom-input input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-phone-fill"></i>
+                                        </span>
+                                        <input type="text" name="major" class="form-control" id="major" placeholder="jurusan" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                     <div class="rs-contact-input">
+                                         <select name="education" id="education" required>
+                                            <option value="">Pilih Pendidikan Terakhir</option>
+                                            <option value="SMA">SMA/SMK</option>
+                                            <option value="D3">D3</option>
+                                            <option value="S1">S1</option>
+                                            <option value="S2">S2</option>
+                                            <option value="S3">S3</option>
                                         </select>
-                                    </div>
+                                        </div>
                                 </div>
-
-                                <div class="mb-3">
-                                    <div class="custom-input input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-megaphone-fill"></i>
-                                        </span>
-                                        <select name="platform" class="form-select" id="ad_platform" required>
-                                            <option value="" disabled selected>Pilih platform iklan</option>
-                                            <option value="google">Google Search Engine Marketing</option>
-                                            <option value="facebook">Facebook & Instagram</option>
-                                            <option value="youtube">YouTube</option>
-                                            <option value="tiktok">TikTok</option>
-                                        </select>
-                                    </div>
+                                <div class="custom-input">
+                                    <label>Upload CV (PDF/DOC):</label>
+                                    <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
                                 </div>
-
-                                <div class="mb-3">
-                                    <div class="custom-input input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-link-45deg"></i>
-                                        </span>
-                                        <input type="url" name="website" class="form-control" id="ad_website" placeholder="Link Website / Landing Page" required>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <div class="custom-input input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-calendar-fill"></i>
-                                        </span>
-                                        <select name="duration" class="form-select" id="ad_duration" required>
-                                            <option value="" disabled selected>Pilih durasi kampanye</option>
-                                            <option value="1">1 Bulan</option>
-                                            <option value="3">3 Bulan</option>
-                                            <option value="6">6 Bulan</option>
-                                            <option value="12">12 Bulan</option>
-                                        </select>
-                                    </div>
-                                </div>
-
                                 <div class="action-buttons mt-auto">
                                     <button type="button" class="btn btn-outline-primary btn-action" onclick="prevStep(2, 1)">Sebelumnya</button>
-                                    <button type="button" class="btn btn-primary btn-action" onclick="nextStep(2, 3)">Selanjutnya</button>
+                                    {{-- <button type="button" class="btn btn-primary btn-action" onclick="nextStep(2, 3)">Selanjutnya</button> --}}
+                                    <button type="submit" class="btn btn-primary btn-action">Simpan</button>
                                 </div>
-                            </div>
-                        </div>
+                            </form>
 
-                        <!-- Step 3: Order Confirmation -->
-                        <div class="form-step" id="form-step-3">
-                            <div class="step-content">
-                                <h5 class="form-subtitle">Konfirmasi Pemesanan</h5>
-                                <p class="form-description">Periksa detail order Anda dan lakukan pembayaran</p>
-
-                                <div class="order-details">
-                                    <div class="detail-row">
-                                        <div class="d-md-flex">
-                                            <span class="detail-label">Paket</span>
-                                            <span class="detail-colon">:</span>
-                                        </div>
-                                        <span class="detail-value">Kunjungan Website</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <div class="d-md-flex">
-                                            <span class="detail-label">Platform</span>
-                                            <span class="detail-colon">:</span>
-                                        </div>
-                                        <span class="detail-value">Google Search Engine Marketing</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <div class="d-md-flex">
-                                            <span class="detail-label">Main Result</span>
-                                            <span class="detail-colon">:</span>
-                                        </div>
-                                        <span class="detail-value">300,000 view + 4,000 Klik ke Website</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <div class="d-md-flex">
-                                            <span class="detail-label">Durasi</span>
-                                            <span class="detail-colon">:</span>
-                                        </div>
-                                        <span class="detail-value">1 Bulan Kampanye</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <div class="d-md-flex">
-                                            <span class="detail-label">Link Iklan</span>
-                                            <span class="detail-colon">:</span>
-                                        </div>
-                                        <span class="detail-value text-break">www.exampleproduct.id/product/details</span>
-                                    </div>
-                                </div>
-
-                                <div class="order-summary">
-                                    <div class="detail-row">
-                                        <span class="detail-label fw-bold">Total Investment:</span>
-                                        <span class="detail-value fw-bold">Rp 16.650.000 (Inc. PPN 11%)</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" id="termsCheck">
-                                    <label class="form-check-label" for="termsCheck">
-                                        Saya setuju dengan <a href="#" class="text-primary">syarat dan ketentuan</a>
-                                    </label>
-                                </div>
-
-                                <div class="action-buttons">
-                                    <button type="button" class="btn btn-outline-primary btn-action" onclick="prevStep(3, 2)">Ubah</button>
-                                    <button type="button" class="btn btn-primary btn-action" id="checkoutBtn" onclick="completeOrder()">Checkout</button>
-                                </div>
                             </div>
                         </div>
 
                         <!-- Success Message -->
-                        <div class="form-step" id="success-step">
+                        {{-- <div class="form-step" id="success-step">
                             <div class="step-content">
                                 <div class="success-content">
                                     <i class="bi bi-check-circle-fill icon-success"></i>
@@ -720,7 +639,7 @@
                                     <button class="btn btn-primary btn-action w-75">Dashboard</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -732,7 +651,8 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         // Update progress line
         function updateProgressLine(currentStep) {
@@ -740,10 +660,14 @@
             if (currentStep === 1) {
                 progressLine.style.background = 'linear-gradient(to right, #2196F3 0%, #e0e0e0 0%)';
             } else if (currentStep === 2) {
-                progressLine.style.background = 'linear-gradient(to right, #2196F3 50%, #e0e0e0 50%)';
-            } else if (currentStep === 3) {
-                progressLine.style.background = 'linear-gradient(to right, #2196F3 100%, #e0e0e0 0%)';
-            }
+                 progressLine.style.background = 'linear-gradient(to right, #F39B21 100%, #e0e0e0 0%)';
+                // progressLine.style.background = 'linear-gradient(to right, #F39B21 50%, #e0e0e0 50%)';
+                // progressLine.style.background = 'linear-gradient(to right, #2196F3 50%, #e0e0e0 50%)';
+            } 
+            // else if (currentStep === 3) {
+            //     progressLine.style.background = 'linear-gradient(to right, #F39B21 100%, #e0e0e0 0%)';
+            //     // progressLine.style.background = 'linear-gradient(to right, #2196F3 100%, #e0e0e0 0%)';
+            // }
         }
 
         // Initialize progress line
@@ -873,6 +797,31 @@
                 }
             });
         });
+
+        //    $('#wizardForm').submit(function (e) {
+        //     alert()
+        //     e.preventDefault();
+        //     const formData = new FormData(this);
+
+        //     $.ajax({
+        //         url: '{{ route('form.submit') }}',
+        //         method: 'POST',
+        //         data: formData,
+        //         contentType: false,
+        //         processData: false,
+        //         success: function (res) {
+        //             alert(res.message);
+        //             $('#wizardModal').modal('hide');
+        //             $('#wizardForm')[0].reset();
+        //             currentStep = 1;
+        //             showStep(currentStep);
+        //         },
+        //         error: function (err) {
+        //             console.log(err)
+        //             alert('Terjadi kesalahan. Pastikan semua data benar.');
+        //         }
+        //     });
+        // });
 
         // Initialize checkout button state
         document.getElementById('checkoutBtn').disabled = true;

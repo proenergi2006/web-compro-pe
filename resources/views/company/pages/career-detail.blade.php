@@ -82,7 +82,7 @@
                 <div class="rs-cart-coupon">
                     <div class="rs-cart-coupon-input  align-items-center">
                         <a href="{{ url(app()->getLocale() . '/careers') }}" class="rs-btn2 has-theme-blue">back</a>
-                        <button data-bs-toggle="modal" data-bs-target="#wizardModal" class="rs-btn2 has-theme-orange">{{ __('message.apply')}}
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModalWizard" class="rs-btn2 has-theme-orange">{{ __('message.apply')}}
                         </button>
                     </div>
                 </div>
@@ -118,9 +118,9 @@
     </section>
     <!-- rs-postbox area end -->
 
-{{-- @include('company.pages.wizard') --}}
+@include('company.pages.wizard')
  <!-- Modal -->
-    <div class="modal fade has-theme-orange" id="wizardModal" tabindex="-1" aria-labelledby="wizardModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade has-theme-orange" id="wizardModal" tabindex="-1" aria-labelledby="wizardModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form id="wizardForm">
                 @csrf
@@ -184,47 +184,48 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> --}}
 
 
 @endsection
 
 @section('script')
 <!-- Don't forget to add it after jQuery and Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        let currentStep = 1;
+        // let currentStep = 1;
 
-        function showStep(step) {
-            $('.step').addClass('d-none');
-            $('.step-' + step).removeClass('d-none');
-            $('.prev-step').toggleClass('d-none', step === 1);
-            $('.next-step').toggleClass('d-none', step === 2);
-            $('button[type="submit"]').toggleClass('d-none', step !== 2);
-        }
+        // function showStep(step) {
+        //     $('.step').addClass('d-none');
+        //     $('.step-' + step).removeClass('d-none');
+        //     $('.prev-step').toggleClass('d-none', step === 1);
+        //     $('.next-step').toggleClass('d-none', step === 2);
+        //     $('button[type="submit"]').toggleClass('d-none', step !== 2);
+        // }
 
-        $('.next-step').click(function() {
-            if (currentStep === 1) {
-                const name = $('input[name="name"]').val();
-                console.log(name)
-                if (!name) {
-                    alert('Nama wajib diisi!');
-                    return;
-                }
-                currentStep++;
-                showStep(currentStep);
-            }
-        });
+        // $('.next-step').click(function() {
+        //     if (currentStep === 1) {
+        //         const name = $('input[name="name"]').val();
+        //         console.log(name)
+        //         if (!name) {
+        //             alert('Nama wajib diisi!');
+        //             return;
+        //         }
+        //         currentStep++;
+        //         showStep(currentStep);
+        //     }
+        // });
 
-        $('.prev-step').click(function() {
-            currentStep--;
-            showStep(currentStep);
-        });
+        // $('.prev-step').click(function() {
+        //     currentStep--;
+        //     showStep(currentStep);
+        // });
 
         $('#wizardForm').submit(function (e) {
             e.preventDefault();
             const formData = new FormData(this);
+            console.log(formData)
 
             $.ajax({
                 url: '{{ route('form.submit') }}',
@@ -234,7 +235,7 @@
                 processData: false,
                 success: function (res) {
                     alert(res.message);
-                    $('#wizardModal').modal('hide');
+                    $('#exampleModalWizard').modal('hide');
                     $('#wizardForm')[0].reset();
                     currentStep = 1;
                     showStep(currentStep);
@@ -248,6 +249,6 @@
 
 
         // Init step
-        showStep(currentStep);
+        // showStep(currentStep);
     </script>
 @endsection

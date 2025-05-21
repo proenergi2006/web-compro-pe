@@ -45,4 +45,8 @@ class Vacancy extends Model
     public function province(){
         return $this->belongsTo(Province::class, 'id_prov');
     }
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class,'id_vacancy');
+    }
 }
