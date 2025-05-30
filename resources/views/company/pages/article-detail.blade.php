@@ -30,87 +30,38 @@
                             <h5 class="sidebar-widget-title">Recent Posts</h5>
                             <div class="sidebar-widget-content">
                                 <div class="sidebar-blog-item-wrapper">
-                                    <div class="sidebar-blog-item">
-                                        <div class="sidebar-blog-thumb">
-                                            <a href="blog-details.html">
-                                                <img src="assets/images/blog/sidebar/blog-sm-01.png" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="sidebar-blog-content">
-                                            <h6 class="sidebar-blog-title">
-                                                <a href="blog-details.html"> Construction of a new high tech plant</a>
-                                            </h6>
-                                            <div class="sidebar-blog-meta">
-                                                <i class="ri-calendar-line"></i>
-                                                <span>May 20, 2024</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-blog-item">
-                                        <div class="sidebar-blog-thumb">
-                                            <a href="blog-details.html">
-                                                <img src="assets/images/blog/sidebar/blog-sm-02.png" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="sidebar-blog-content">
-                                            <h6 class="sidebar-blog-title">
+                                    @forelse ($latests as $latest)
+                                        <div class="sidebar-blog-item">
+                                            <div class="sidebar-blog-thumb">
                                                 <a href="blog-details.html">
-                                                    Building resilient supply chains for industries </a>
-                                            </h6>
-                                            <div class="sidebar-blog-meta">
-                                                <i class="ri-calendar-line"></i>
-                                                <span>May 20, 2024</span>
+                                                    <img src="{{ asset('storage/' . $latest->thumbnail) }}" alt="image">
+                                                </a>
+                                            </div>
+                                            <div class="sidebar-blog-content">
+                                                <h6 class="sidebar-blog-title">
+                                                    <a href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $latest->slug]) }}">  {{ $latest->title}}</a>
+                                                </h6>
+                                                <div class="sidebar-blog-meta">
+                                                    <i class="ri-calendar-line"></i>
+                                                    <span>{{ $latest->created_at->format('d M Y')}}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="sidebar-blog-item">
-                                        <div class="sidebar-blog-thumb">
-                                            <a href="blog-details.html">
-                                                <img src="assets/images/blog/sidebar/blog-sm-03.png" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="sidebar-blog-content">
-                                            <h6 class="sidebar-blog-title">
-                                                <a href="blog-details.html">
-                                                    Factories technologies in interactive and plants </a>
-                                            </h6>
-                                            <div class="sidebar-blog-meta">
-                                                <i class="ri-calendar-line"></i>
-                                                <span>May 20, 2024</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sidebar-blog-item">
-                                        <div class="sidebar-blog-thumb">
-                                            <a href="blog-details.html">
-                                                <img src="assets/images/blog/sidebar/blog-sm-01.png" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="sidebar-blog-content">
-                                            <h6 class="sidebar-blog-title">
-                                                <a href="blog-details.html">
-                                                    Building resilient supply for industries and factorie </a>
-                                            </h6>
-                                            <div class="sidebar-blog-meta">
-                                                <i class="ri-calendar-line"></i>
-                                                <span>May 20, 2024</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @empty
+                                       <p>{{__('message.othercontent')}}</p> 
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
                         <div class="sidebar-widget">
                             <h5 class="sidebar-widget-title">Popular Tags</h5>
                             <div class="sidebar-widget-content tagcloud">
-                                <a href="#">Construction</a>
+                                <a href="#">Diesel</a>
                                 <a href="#">Factory</a>
                                 <a href="#">Gas</a>
                                 <a href="#">Industry</a>
                                 <a href="#">Manufacture</a>
-                                <a href="#">Metallurgy</a>
                                 <a href="#">Oil</a>
-                                <a href="#">Robotic</a>
                             </div>
                         </div>
                     </div>

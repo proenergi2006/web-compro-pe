@@ -51,6 +51,28 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-7 mb-3">
+                            <label class="form-label">Work Location</label>
+                            <select name="location_id" class="form-select mb-3 location_id" required>
+                                @foreach ($provinces as $prov)
+                                    <option value="{{ $prov->id }}" {{ $prov->id == $vacancy->id_prov ? 'selected' : '' }}>{{ $prov->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-7 mb-3">
+                            <label class="form-label">Employee Status</label>
+                          <select name="employee_status" class="form-select mb-3" required>
+                                <option value="">choose employee status</option>
+                                <option value="permanent" {{ $vacancy->status = 'permanent' ? 'selected' : '' }}>Permanent</option>
+                                <option value="contract" {{ $vacancy->status = 'contract' ? 'selected' : '' }}>Contract</option>
+                                <option value="internship" {{ $vacancy->status = 'internship' ? 'selected' : '' }}>Internship</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-7 mb-3">
+                            <label class="form-label">Min year of experience</label>
+                            <input class="form-control form-control-lg" type="text" name="min_year" value="{{ old('min_year', $vacancy->min_year) }}" required/>
+                        </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" class="form-control" rows="10" id="editor" >{{ old('title', $vacancy->description) }}</textarea>
@@ -61,7 +83,7 @@
                         </div>
                         <div class="col-md-5 mb-3">
                             <label class="form-label">Due Date</label>
-                            <input class="form-control form-control-lg" type="date" name="due_date"  value="{{ old('title', $vacancy->due_date) }}"/>
+                            <input class="form-control form-control-lg" type="date" name="due_date"  value="{{ old('due_date', \Carbon\Carbon::parse($vacancy->due_date)->format('Y-m-d')) }}"/>
                         </div>
                        
                         <button type="submit" class="btn btn-primary">Save</button>

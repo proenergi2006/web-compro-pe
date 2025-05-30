@@ -32,10 +32,10 @@ class DepartmentController extends Controller
     {
     $departments = Department::get();
 
-    $data = $departments->map(function ($department) {
+    $data = $departments->map(function ($department,$index) {
 
         return [
-            'id' => $department->id,
+            'no' => $index + 1, 
             'name' => $department->name,
             'action' => '<div class="d-flex gap-1">
                     <a href="#" class="btn btn-sm btn-info btn-edit" title="Edit department" data-id="' . $department->id . '" ><i class="align-middle" data-feather="edit"></i></a>

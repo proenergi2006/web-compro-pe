@@ -71,8 +71,12 @@
                         $newUrlId = preg_replace('/^' . $currentLocale . '/', $newLocaleId, $currentUrl);
                     @endphp
 
-                    <a href="{{ url($newUrlEn) }}">🇬🇧</a> |
-                    <a href="{{ url($newUrlId) }}">🇮🇩</a>
+                    {{-- <a href="{{ url($newUrlEn) }}">🇬🇧</a> |
+                    <a href="{{ url($newUrlId) }}">🇮🇩</a> --}}
+                   <ul class="multipage-menu" style="color: black">Lang :
+                   </ul>
+                    <a href="{{ url($newUrlEn) }}"><span class="fi fi-gb" style="width: 20px; height: auto;"></span>  </a> |
+                    <a href="{{ url($newUrlId) }}"><span class="fi fi-id" style="width: 20px; height: auto;"></span>  </a>
                     <!-- sidebar start -->
                     <div class="rs-header-hamburger toggle-mobile-only">
                         <div class="sidebar-toggle">

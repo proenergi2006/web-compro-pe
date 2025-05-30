@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Terima Kasih Telah Menghubungi PT. Pro Energi</title>
+    <title>Vacancies Applied</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,22 +49,31 @@
           <img src="https://proenergi.com/wp-content/uploads/2017/03/pe-logo.png" alt="">
         </div>
 
-        <h4>Terima Kasih {{ $data['name'] }} telah menghubungi PT. Pro Energi!</h4>
+        <h5>Dear Mr./Ms.{{ $data['name'] }} </h5>
 
         <p>
-            Kami telah menerima pesan Anda dengan subjek <strong>{{ $data['subject'] }}</strong>,  
-            Tim kami akan segera menindaklanjuti dan menghubungi Anda kembali melalui email <strong>{{ $data['email'] }}</strong>.
+            You have successfully applied for this position: <br>
         </p>
+        <table>
+            <tr>
+                <th>Position :</th>
+                <td>{{ $data['vacancy_title']}}</td>
+            </tr>
+            <tr>
+                <th>Location :</th>
+                <td>{{ $data['location']}}</td>
+            </tr>
+        </table>
 
-        <p>
-            Jika Anda membutuhkan informasi lebih lanjut, jangan ragu untuk menghubungi kami melalui kontak resmi yang tersedia.
-        </p>
+        <p>Please kindly wait for the next announcement from us.</p>
+        <p>Thank you for your participation.</p>
 
-        <p>Best Regards,<br><strong>Tim Pro Energi</strong></p>
+       <p>Sincerely, <br>
+        PT. Pro Energi</p>
 
-        <div class="footer">
+        {{-- <div class="footer">
             &copy; {{ date('Y') }} Pro Energi. Email ini dikirim secara otomatis, mohon tidak membalas langsung.
-        </div>
+        </div> --}}
     </div>
 </body>
 </html>

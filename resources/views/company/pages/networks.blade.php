@@ -94,7 +94,7 @@ z-index: 1;
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h1 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.networks') !!}</h1>
+                        <h2 class="text-white radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.networks') !!}</h2>
                     </div>
                 </div>
             </div>

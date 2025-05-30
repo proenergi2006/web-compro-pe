@@ -46,6 +46,7 @@ class LoginController extends Controller
         return view('admin.pages.login'); // you can change the path here
     }
 
+
     public function logout(Request $request)
     {
         Auth::logout();

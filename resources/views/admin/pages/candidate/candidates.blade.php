@@ -7,8 +7,26 @@
     <div class="col-12 d-flex">
         <div class="card flex-fill">
             <div class="card-header">
-                {{-- <h5 class="card-title mb-0">Articles</h5> --}}
+                <h5 class="card-title text-black">Position - {{$vacancy->title}} </h5>
+                <div class="col-xl-4">
+                    <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col mt-0">
+                                <h5 class="card-title">Total Applicants</h5>
+                            </div>
 
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i class="align-middle" data-feather="users"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="mt-1 mb-3">{{ $vacancy->candidates->count() }}</h1>
+                    </div>
+                </div>
+                </div>
+                
                 {{-- <a href="{{ route('trashed.articles')}}" class="btn btn-secondary"><i class="align-middle me-2" data-feather="trash"></i>trashed article</a> --}}
             </div>
             <div class="card-body">
@@ -22,9 +40,10 @@
                     <thead>
                          <tr>
                             <th>No</th>
-                            <th>Position</th>
-                            <th>Total Candidate</th>
-                            <th>Due Date</th>
+                            <th>Name</th>
+                            <th>Education</th>
+                            <th>Major</th>
+                            <th>Apply Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -35,6 +54,9 @@
         </div>
     </div>
 </div>
+<a href="{{ route('admin.candidates')}}" class="btn btn-md btn-secondary">Back</a>
+
+
 @endsection
 
 @section('scripts')
@@ -52,10 +74,10 @@
             },
             stateSave: false,
             columns: [
-                { data: 'id' },
-                { data: 'title' },
+                { data: 'no' },
                 { data: 'name' },
                 { data: 'education' },
+                { data: 'major' },
                 { data: 'created_at' },
                 { data: 'action', orderable: false, searchable: false },
             ],
@@ -93,7 +115,7 @@
             });
 
             // Delete handler with SweetAlert2
-            $(document).on('click', '.btn-delete', function (e) {
+            $(document).on('click', '.btn-cv', function (e) {
                 e.preventDefault();
                 let id = $(this).data('id');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Vacancy;
 use App\Models\Department;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,8 @@ class WebController extends Controller
     public function showArticle($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
-        return view('company.pages.article-detail', compact('article'));
+        $latests = Article::where('status', 1)->latest()->limit(5)->get();
+        return view('company.pages.article-detail', compact('article','latests'));
     }
 
     public function searchArticle(Request $request)
@@ -49,9 +51,12 @@ class WebController extends Controller
 
     public function vacancies()
     {
-        $vacancies = Vacancy::with('department')->where('status', 1)->latest()->paginate(10);
-        $vacancies_old = Vacancy::where('status', 1)->oldest()->limit(5)->get();
-        return view('company.pages.careers',compact('vacancies','vacancies_old'));
+        $vacancies = Vacancy::with('department')
+        ->where('status', 1)
+        ->where('due_date', '>=', Carbon::today())
+        ->latest()
+        ->paginate(10);
+        return view('company.pages.careers',compact('vacancies'));
     }
 
     public function showVacancy($slug)

@@ -90,6 +90,13 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="rs-banner-item-wrapper">
+                            {{-- <iframe 
+                                class="bg-video"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&loop=1&playlist=dQw4w9WgXcQ"
+                                frameBorder="0"
+                                allowFullScreen
+                                allow="autoplay"
+                                > --}}
                             <div class="rs-banner-bg-thumb" data-background="{{ asset('assets/images/pe-bg/10.jpg')}}">
                             </div>
                             <div class="container">
@@ -197,7 +204,7 @@
     <!-- banner area end -->
 
     <!-- about area start -->
-    <section id="homeabout" class="rs-elements-portfolio-area section-space rs-portfolio-eight rs-swiper">
+    <section id="homeabout" class="rs-elements-portfolio-area section-space rs-portfolio-eight rs-swiper bg-orange-gradient">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-9 col-md-10">
@@ -390,19 +397,19 @@
                     </div>
                 </div>
             </div>
-            <div class="container justify-content-between">
-                <div class="row">
-                    <div class="col-xl-4 text-center wow slideInLeft" data-wow-delay=".7s" data-wow-duration="1s">
+            <div class="container">
+                <div class="row d-flex-center">
+                    <div class="col-xl-4 d-flex-center wow slideInLeft" data-wow-delay=".7s" data-wow-duration="1s">
                         <div class="rs-video-content">
                             <img src="{{ asset('assets/images/produk/pe-product-prodiesel-1.png')}}" alt="image">
                         </div>
                     </div>
-                    <div class="col-xl-4 text-center wow slide-down" data-wow-duration="17s" >
+                    <div class="col-xl-4 d-flex-center wow slide-down" data-wow-duration="17s" >
                         <div class="rs-video-content">
-                            <img src="{{ asset('assets/images/produk/pe-product-prodieselbio-1.png')}}" alt="image">
+                            <img src="{{ asset('assets/images/produk/crushed_stone.png')}}" width="380px" alt="image">
                         </div>
                     </div>
-                    <div class="col-xl-4 text-center wow slideInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                    <div class="col-xl-4 d-flex-center wow slideInRight" data-wow-delay=".7s" data-wow-duration="1s">
                         <div class="rs-video-content">
                             <img src="{{ asset('assets/images/produk/bg_otherproduct_rev.png')}}" alt="image">
                         </div>
@@ -447,7 +454,7 @@
     <!-- services area end -->
 
     <!-- networks area start -->
-    <section id="homenetworks" class="rs-testimonial-area section-space rs-testimonial-one primary-bg rs-swiper">
+    <section id="homenetworks" class="rs-testimonial-area section-space rs-testimonial-one primary-dark-bg rs-swiper">
         <div class="container">
             <div class="row  g-5 justify-content-center section-title-space align-items-center">
                 <div class="col-xxl-7 col-xl-8 col-lg-8">
@@ -487,9 +494,6 @@
                                                 <a href="blog-details.html">   <img src="{{ asset('storage/' . $article->thumbnail) }}" width="300"></a>
                                             </div>
                                             <div class="rs-blog-content">
-                                                <div class="rs-blog-tag has-theme-red">
-                                                    <a href="blog-details.html">Company</a>
-                                                </div>
                                                 <h5 class="rs-blog-title underline has-black"> <a href="blog-details.html">{{$article->title}}</a>
                                                 </h5>
                                                 <div class="rs-blog-meta">
@@ -521,6 +525,15 @@
                             </div>
                         </div>
                     </div>
+                @if ($articles->isNotEmpty())
+                    <div class="row text-center mt-5 g-5">
+                        <div class="rs-testimonial-btn">
+                            <a class="rs-btn has-theme-red has-icon has-bg" href="/{{ app()->getLocale() }}/articles"> <i
+                                class="ri-play-fill"></i>  {{ __('message.morenews') }}
+                            </a>
+                        </div>
+                    </div>
+                @endif
                 </div>
                 <div class="col-xl-2 col-lg-2">
                     <div class="text-center mb-2">
@@ -538,7 +551,7 @@
             </div>
         </div>
     </section>
-    <!-- career area end -->
+    <!-- article area end -->
 
     <!-- career area start -->
     <section id="homecareer">
@@ -558,18 +571,22 @@
                     </div>
                 </div>
                 <div class="row justify-content-between">
-                    <div class="row mb-4">
+                    <div class="row" style="margin-bottom: 30px">
+                      
                         <div class="rs-breadcrumb-title-wrapper text-center">
+                        </br>
                             <h3 class="rs-breadcrumb-title text-white" style="background: #194494b9;display: inline-block;padding: 14px 50px;">{!! __('message.work') !!}</h3>
+                    
                         </div>
                     </div>
-                    <div class="row text-center">
+                    <div class="row text-center" style="margin-bottom:30px">
                         <div class="rs-testimonial-btn">
                             <a class="rs-btn has-theme-red has-icon has-bg" href="/{{ app()->getLocale() }}/careers"> <i
                                 class="ri-play-fill"></i>  {{ __('message.apply') }}
                             </a>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

@@ -38,7 +38,6 @@ Route::get('/', function () {
     return redirect('/en'); // default redirect ke bahasa Indonesia
 });
 
-Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
 Route::post('/form-submit', [CandidateController::class, 'store'])->name('form.submit');
 
 Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|id']], function () {
@@ -73,6 +72,8 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|id']], function ()
     // Route::get('/careers', function () {
     //     return view('company.pages.careers');
     // });
+    
+    Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
 });
 Route::get('/articles/{slug}', [WebController::class, 'showArticle'])->name('web.article.show');
 Route::get('/careers/{slug}', [WebController::class, 'showVacancy'])->name('web.vacancy.show');
@@ -86,42 +87,44 @@ Route::post('admin-signin', [LoginController::class, 'login']);
 Route::post('signout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
+
 Route::middleware(['auth'])->group(function () {
-Route::get('/dashboard', function () {
-    return view('admin.pages.dashboard');
+    Route::get('/dashboard', function () {
+        return view('admin.pages.dashboard');
+    });
+
+    //admin articles management
+    Route::get('admin-articles', [ArticleController::class, 'index'])->name('admin.articles');
+    Route::get('add-article', [ArticleController::class, 'create'])->name('add.article');
+    Route::post('admin-articles', [ArticleController::class, 'store'])->name('store.article');
+    Route::get('/admin-articles/data', [ArticleController::class, 'getData']);
+    Route::get('edit-article/{id}', [ArticleController::class, 'edit'])->name('edit.article');
+    Route::put('edit-article/{article}', [ArticleController::class, 'update'])->name('update.articles');
+    Route::get('show-article/{article}', [ArticleController::class, 'show'])->name('show.article');
+    Route::get('/publish-article/{id}', [ArticleController::class, 'publishArticle']);
+    Route::get('/draft-article/{id}', [ArticleController::class, 'draftArticle']);
+    Route::delete('/delete-article/{id}', [ArticleController::class, 'destroy']);
+    Route::get('trashed-articles', [ArticleController::class, 'trashedArticle'])->name('trashed.articles');
+    Route::post('/restore-articles/{id}', [ArticleController::class, 'restoreArticle']);
+
+    //admin products management
+    Route::get('admin-products', [ProductController::class, 'index'])->name('admin.products');
+    Route::get('add-product', [ProductController::class, 'create'])->name('add.product');
+    Route::post('admin-products', [ProductController::class, 'store'])->name('store.product');
+    Route::get('/admin-products/data', [ProductController::class, 'getData']);
+    Route::get('edit-product/{id}', [ProductController::class, 'edit'])->name('edit.product');
+    Route::put('edit-product/{product}', [ProductController::class, 'update'])->name('update.product');
+    Route::get('show-product/{id}', [ProductController::class, 'show'])->name('show.product');
+    Route::get('/draft-product/{id}', [ProductController::class, 'draftProduct']);
+    Route::delete('/delete-product/{id}', [ProductController::class, 'destroy']);
+    Route::get('trashed-product', [ProductController::class, 'trashedProduct'])->name('trashed.Products');
+    Route::post('/restore-product/{id}', [ProductController::class, 'restoreProduct']);
+
+    Route::get('user-management', [HomeController::class, 'userManagement'])->name('user.management');
+    Route::post('user-register', [HomeController::class, 'createUser'])->name('user.register');
 });
 
-//admin articles management
-Route::get('admin-articles', [ArticleController::class, 'index'])->name('admin.articles');
-Route::get('add-article', [ArticleController::class, 'create'])->name('add.article');
-Route::post('admin-articles', [ArticleController::class, 'store'])->name('store.article');
-Route::get('/admin-articles/data', [ArticleController::class, 'getData']);
-Route::get('edit-article/{id}', [ArticleController::class, 'edit'])->name('edit.article');
-Route::put('edit-article/{article}', [ArticleController::class, 'update'])->name('update.articles');
-Route::get('show-article/{article}', [ArticleController::class, 'show'])->name('show.article');
-Route::get('/publish-article/{id}', [ArticleController::class, 'publishArticle']);
-Route::get('/draft-article/{id}', [ArticleController::class, 'draftArticle']);
-Route::delete('/delete-article/{id}', [ArticleController::class, 'destroy']);
-Route::get('trashed-articles', [ArticleController::class, 'trashedArticle'])->name('trashed.articles');
-Route::post('/restore-articles/{id}', [ArticleController::class, 'restoreArticle']);
-
-//admin products management
-Route::get('admin-products', [ProductController::class, 'index'])->name('admin.products');
-Route::get('add-product', [ProductController::class, 'create'])->name('add.product');
-Route::post('admin-products', [ProductController::class, 'store'])->name('store.product');
-Route::get('/admin-products/data', [ProductController::class, 'getData']);
-Route::get('edit-product/{id}', [ProductController::class, 'edit'])->name('edit.product');
-Route::put('edit-product/{product}', [ProductController::class, 'update'])->name('update.product');
-Route::get('show-product/{id}', [ProductController::class, 'show'])->name('show.product');
-Route::get('/draft-product/{id}', [ProductController::class, 'draftProduct']);
-Route::delete('/delete-product/{id}', [ProductController::class, 'destroy']);
-Route::get('trashed-product', [ProductController::class, 'trashedProduct'])->name('trashed.Products');
-Route::post('/restore-product/{id}', [ProductController::class, 'restoreProduct']);
-
-
-});
-
-Route::middleware(['auth', 'role:hr'])->group(function () {
+Route::middleware(['auth', 'role:hr,admin'])->group(function () {
 //admin department management
 Route::get('admin-department', [DepartmentController::class, 'index'])->name('admin.department');
 // Route::get('add-department', [DepartmentController::class, 'create'])->name('add.department');
@@ -149,9 +152,9 @@ Route::get('admin-candidates', [CandidateController::class, 'index'])->name('adm
 // Route::post('admin-vacancies', [VacancyController::class, 'store'])->name('store.vacancy');
 Route::get('/admin-candidates/data', [CandidateController::class, 'getData']);
 Route::get('get-candidate/{id}', [CandidateController::class, 'index_candidate'])->name('get.candidates');
+Route::get('detail-candidate/{id}', [CandidateController::class, 'show'])->name('show.candidate');
 // Route::get('edit-vacancy/{id}', [VacancyController::class, 'edit'])->name('edit.vacancy');
 // Route::put('edit-vacancy/{vacancy}', [VacancyController::class, 'update'])->name('update.vacancy');
-// Route::get('show-vacancy/{id}', [VacancyController::class, 'show'])->name('show.vacancy');
 // Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
 // Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
 // Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);

@@ -38,7 +38,7 @@ class ArticleController extends Controller
     {
     $articles = Article::with('user')->latest()->get();
 
-    $data = $articles->map(function ($article) {
+    $data = $articles->map(function ($article,$index) {
 
         $status = '';
         if ($article->status == '0') {
@@ -51,7 +51,7 @@ class ArticleController extends Controller
 
         $encrypt= Crypt::encrypt($article->id);
         return [
-            'id' => $article->id,
+            'no' => $index + 1, 
             'title' => $article->title,
             'slug' => $article->slug,
             'thumbnail' => asset('storage/' . $article->thumbnail)?? '',

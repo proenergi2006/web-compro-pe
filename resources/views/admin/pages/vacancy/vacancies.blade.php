@@ -52,7 +52,7 @@
             ajax: '{{ url("/admin-vacancies/data") }}',
             stateSave: false,
             columns: [
-                { data: 'id' },
+                { data: 'no' },
                 { data: 'title' },
                 { data: 'dept' },
                 { data: 'status' },

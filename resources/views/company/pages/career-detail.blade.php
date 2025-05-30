@@ -82,37 +82,10 @@
                 <div class="rs-cart-coupon">
                     <div class="rs-cart-coupon-input  align-items-center">
                         <a href="{{ url(app()->getLocale() . '/careers') }}" class="rs-btn2 has-theme-blue">back</a>
-                        <button data-bs-toggle="modal" data-bs-target="#exampleModalWizard" class="rs-btn2 has-theme-orange">{{ __('message.apply')}}
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModalWizard" class="rs-btn2 has-theme-orange">{{ strtolower(__('message.apply')) }}
                         </button>
                     </div>
                 </div>
-                {{-- <div class="col-xl-4 col-lg-4">
-                    <div class="rs-sidebar-wrapper rs-sidebar-sticky">
-                        <div class="sidebar-widget mb-30">
-                            <h5 class="sidebar-widget-title">Recent Posts</h5>
-                            <div class="sidebar-widget-content">
-                                <div class="sidebar-blog-item-wrapper">
-                                    <div class="sidebar-blog-item">
-                                        <div class="sidebar-blog-thumb">
-                                            <a href="blog-details.html">
-                                                <img src="assets/images/blog/sidebar/blog-sm-01.png" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="sidebar-blog-content">
-                                            <h6 class="sidebar-blog-title">
-                                                <a href="blog-details.html"> Construction of a new high tech plant</a>
-                                            </h6>
-                                            <div class="sidebar-blog-meta">
-                                                <i class="ri-calendar-line"></i>
-                                                <span>May 20, 2024</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
@@ -194,6 +167,38 @@
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
+           $(document).ready(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                    $('#wizardForm').submit(function (e) {
+                        e.preventDefault();
+                        const formData = new FormData(this);
+                        // console.log(formData)
+
+                        $.ajax({
+                            url: '{{ route('form.submit') }}',
+                            method: 'POST',
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                alert(res.message);
+                                $('#exampleModalWizard').modal('hide');
+                                $('#wizardForm')[0].reset();
+                                // currentStep = 1;
+                                // showStep(currentStep);
+                            },
+                            error: function (err) {
+                                console.log(err)
+                                alert('Terjadi kesalahan. Pastikan semua data benar.');
+                            }
+                        });
+                    });
+           })
         // let currentStep = 1;
 
         // function showStep(step) {
@@ -221,31 +226,7 @@
         //     currentStep--;
         //     showStep(currentStep);
         // });
-
-        $('#wizardForm').submit(function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            console.log(formData)
-
-            $.ajax({
-                url: '{{ route('form.submit') }}',
-                method: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (res) {
-                    alert(res.message);
-                    $('#exampleModalWizard').modal('hide');
-                    $('#wizardForm')[0].reset();
-                    currentStep = 1;
-                    showStep(currentStep);
-                },
-                error: function (err) {
-                    console.log(err)
-                    alert('Terjadi kesalahan. Pastikan semua data benar.');
-                }
-            });
-        });
+      
 
 
         // Init step

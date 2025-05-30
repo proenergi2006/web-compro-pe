@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="rs-breadcrumb-content-wrapper">
                     <div class="rs-breadcrumb-title-wrapper text-center">
-                        <h2 class="rs-breadcrumb-title radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.news') !!}</h2>
+                        <h2 class="text-white radius-10" style="background: #EA5501;display: inline-block;padding: 10px 40px;">{!! __('message.news') !!}</h2>
                     </div>
                 </div>
             </div>
@@ -16,49 +16,57 @@
     </section>
      
      <!-- postbox area start -->
-     <section class="rs-postbox-area section-space">
+    <section class="rs-postbox-area section-space">
         <div class="container">
             <div class="row g-5">
                 <div class="col-xl-8 col-lg-8">
                     <div class="rs-postbox-wrapper">
                         @forelse ($articles as $article)
                             <article class="rs-postbox-item">
-                                <div class="rs-postbox-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Thumbnail" width="80" height="auto">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                         <div class="rs-postbox-thumb">
+                                            <a href="{{ route('web.article.show', ['slug' => $article->slug]) }}">
+                                                <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Thumbnail" width="80" height="auto">
+                                    
+                                            </a>
+                                            {{-- <div class="rs-postbox-tag">
+                                                <a href="blog-details.html">Company</a>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                             <div class="rs-postbox-content" style="padding-top: 0px">
+                                                <span class="rs-postbox-meta-text">{{$article->created_at}}</span>
+                                                <h3 class="rs-postbox-title">
+                                                    <a href="{{ route('web.article.show', ['slug' => $article->slug]) }}">{{$article->title}}</a>
+                                                </h3>
+                                                <div class="rs-postbox-text">
+                                                    {!! Str::limit(strip_tags(html_entity_decode($article->content)), 100) !!}
+                                                </div>
+                                                <div class="rs-postbox-btn" style="margin-top:20px">
+                                                    <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $article->slug]) }}">{!! __('message.read') !!}
+                                                        <span class="icon-box">
+                                                    <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                                    <path
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                    </path>
+                                                    </svg>
+                                                    <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                                    <path
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                    </path>
+                                                    </svg>
+                                                    </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
                                
-                                    </a>
-                                    {{-- <div class="rs-postbox-tag">
-                                        <a href="blog-details.html">Company</a>
-                                    </div> --}}
-                                </div>
-                                <div class="rs-postbox-content">
-                                    <span class="rs-postbox-meta-text">{{$article->created_at}}</span>
-                                    <h3 class="rs-postbox-title">
-                                        <a href="{{ route('web.article.show', ['slug' => $article->slug]) }}">{{$article->title}}</a>
-                                    </h3>
-                                    <div class="rs-postbox-text">
-                                        {!! html_entity_decode($article->content) !!}
-                                    </div>
-                                    <div class="rs-postbox-btn">
-                                        <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ route('web.article.show', ['lang' => app()->getLocale(), 'slug' => $article->slug]) }}">{!! __('message.read') !!}
-                                            <span class="icon-box">
-                                    <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                    <path
-                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                    </path>
-                                    </svg>
-                                    <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                    <path
-                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                    </path>
-                                    </svg>
-                                </span>
-                                        </a>
-                                    </div>
-                                </div>
+                             
                             </article>
-                        @empty
+                        @empty 
                         <div class="col-12">
                             <div class="alert alert-warning text-center">
                                 {!! __('message.nonews') !!}
@@ -121,9 +129,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @empty
-                                     <p>{{__('message.othercontent')}}</p>
-                                    @endforelse
+                                        @empty
+                                        <p>{{__('message.othercontent')}}</p>
+                                        @endforelse
                                     
                                 </div>
                             </div>
@@ -148,5 +156,6 @@
         </div>
     </section>
     <!-- rs-postbox area end -->
+
 
 @endsection

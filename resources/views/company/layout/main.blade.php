@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/animate.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/swiper.min.css')}}">
+     @yield('cssnice')
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/nouislider.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/magnific-popup.css')}}">
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/spacing.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/remixicon.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flag-icons.min.css') }}">
     @yield('css')
 </head>
 
@@ -187,6 +189,7 @@
     <script src="{{ asset('assets/js/vendor/magnific-popup.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/isotope.pkgd.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/imagesloaded.pkgd.min.js')}}"></script>
+     {{-- @yield('nice') --}}
     <script src="{{ asset('assets/js/plugins/nice-select.min.js')}}"></script>
     <script src="{{ asset('assets/js/plugins/jarallax.min.js')}}"></script>
     <script src="{{ asset('assets/js/vendor/ajax-form.js')}}"></script>

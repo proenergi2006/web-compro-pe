@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <a href="{{ route('admin.vacancies')}}" class="btn btn-md btn-secondary">Back</a>
-                <a href="{{ route('edit.vacancy', $vacancy->id)}}" class="btn btn-warning"><i data-feather="edit"></i> Edit</a>
+                <a href="{{ route('edit.vacancy', Crypt::encrypt($vacancy->id))}}" class="btn btn-warning"><i data-feather="edit"></i> Edit</a>
                 @if ($vacancy->status == 0)
                     <button class="btn btn-primary btn-publish" data-id="{{ $vacancy->id }}">
                         <i data-feather="upload"></i> Publish

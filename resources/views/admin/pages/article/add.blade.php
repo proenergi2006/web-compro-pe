@@ -47,7 +47,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Content</label>
-                            <textarea name="content" class="form-control" rows="10" id="editor" required ></textarea>
+                            <textarea name="content" class="form-control" rows="10" id="editor" ></textarea>
                         </div>
                        
                         <button type="submit" class="btn btn-primary">Save</button>

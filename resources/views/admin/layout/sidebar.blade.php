@@ -14,7 +14,14 @@
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            @if (auth()->user()->role === 'content' || auth()->user()->role === 'admin')
+            @if(auth()->user()->role === 'admin')
+             <li class="sidebar-item {{ request()->is('*management*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ url('user-management')}}">
+                <i class="align-middle" data-feather="user"></i> <span class="align-middle">User Management</span>
+                </a>
+            </li>
+            @endif
+            @if (auth()->user()->role === 'article' || auth()->user()->role === 'admin')
             <li class="sidebar-item {{ request()->is('*-article*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ url('admin-articles')}}">
                 <i class="align-middle" data-feather="book"></i> <span class="align-middle">Articles</span>

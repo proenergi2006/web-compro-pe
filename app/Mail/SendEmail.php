@@ -36,8 +36,8 @@ class SendEmail extends Mailable
 
             return $this->from('support@proenergi.com') // bisa tetap pakai email internal
                 ->replyTo($this->data['email']) // agar admin bisa balas ke pengirim
-                ->subject($this->data['subject'])
-                ->view('company.pages.email');
+                ->subject('Thank you for contacting Pro Energi')
+                ->view('company.layout.email');
 
     }
 }

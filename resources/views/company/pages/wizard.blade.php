@@ -485,7 +485,7 @@
                     <!-- <div class="container"> -->
                     <div class="wizard-container">
                             <div class="wizard-header mb-4">
-                                <h3>Lamar ke </h3>
+                                <h6>{{ __('message.applyto')}} <br><span style="background:#f4c984 ">{{$vacancy->title}}</span></h6>
                             </div>
                         
                         <div class="wizard-steps">
@@ -500,8 +500,8 @@
                             <div class="step-content">
                                 <h5 class="form-subtitle">Informasi Pelamar</h5>
                                 {{-- <p class="form-description">Konfirmasi informasi kontak Anda</p> --}}
-                                 <form id="wizardForm">
-                                     @csrf
+                                 <form id="wizardForm" enctype="multipart/form-data" method="POST">
+                                    
                                  <input type="hidden" name="id_vacancy" value="{{$vacancy->id}}">
                                 <div class="mb-3">
                                     <div class="custom-input input-group">
@@ -532,7 +532,7 @@
                                 <div class="mb-3">
                                     <div class="custom-input input-group">
                                         <span class="input-group-text">
-                                            <i class="bi bi-phone-fill"></i>
+                                            <i class="bi bi-geo-alt"></i>
                                         </span>
                                         <input type="text" name="location" class="form-control" id="location" placeholder="lokasi" required>
                                     </div>
@@ -547,26 +547,11 @@
                         <!-- Step 2: Package Selection -->
                         <div class="form-step" id="form-step-2">
                             <div class="step-content">
+                                  
                                 <div class="mb-3">
-                                    <div class="custom-input input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-phone-fill"></i>
-                                        </span>
-                                        <input type="text" name="experience" class="form-control" id="experience" placeholder="pengalaman" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="custom-input input-group">
-                                        <span class="input-group-text">
-                                            <i class="bi bi-phone-fill"></i>
-                                        </span>
-                                        <input type="text" name="major" class="form-control" id="major" placeholder="jurusan" required>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                     <div class="rs-contact-input">
-                                         <select name="education" id="education" required>
+                                    {{-- <div class="custom-input input-group"> --}}
+                                        <div class="rs-contact-input">
+                                        <select name="education" id="education" required>
                                             <option value="">Pilih Pendidikan Terakhir</option>
                                             <option value="SMA">SMA/SMK</option>
                                             <option value="D3">D3</option>
@@ -574,10 +559,30 @@
                                             <option value="S2">S2</option>
                                             <option value="S3">S3</option>
                                         </select>
-                                        </div>
+                                    </div>
                                 </div>
-                                <div class="custom-input">
-                                    <label>Upload CV (PDF/DOC):</label>
+                                <div class="mb-3">
+                                    <div class="custom-input input-group">
+                                        <span class="input-group-text">
+                                           <i class="bi bi-file-earmark"></i>
+                                        </span>
+                                        <input type="text" name="major" class="form-control" id="major" placeholder="jurusan" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="custom-input input-group">
+                                        <span class="input-group-text">
+                                           <i class="bi bi-person-circle"></i>
+                                        </span>
+                                        <input type="text" name="experience" class="form-control" id="experience" placeholder="pengalaman" required>
+                                    </div>
+                                </div>
+
+                                <div class="custom-input input-group">
+                                    <span class="input-group-text">
+                                        <label>Upload CV (PDF/DOC):</label>
+                                    </span>
+                                    
                                     <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx" required>
                                 </div>
                                 <div class="action-buttons mt-auto">
@@ -824,7 +829,7 @@
         // });
 
         // Initialize checkout button state
-        document.getElementById('checkoutBtn').disabled = true;
+        // document.getElementById('checkoutBtn').disabled = true;
     </script>
 </body>
 

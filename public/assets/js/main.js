@@ -861,7 +861,9 @@ Sidebar Toggle
                 if (!id) return
                 const target = document.getElementById(id)
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' })
+                   lenis.scrollTo(target, { duration: 1.2, easing: (t) => t })
+
+                    // target.scrollIntoView({ behavior: 'smooth' })
                 }
             })
         });

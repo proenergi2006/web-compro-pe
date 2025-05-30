@@ -9,7 +9,8 @@ class Candidate extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'id_vacancy','name', 'email', 'location', 'education', 'major', 'experience', 'cv_path','phone'
+    'id_vacancy','name', 'email', 'location', 'education', 'major', 'experience', 'cv_path','phone','created_at',
+    'updated_at',
     ];
 
     public $timestamps = false;

@@ -40,7 +40,7 @@ class VacancyController extends Controller
     $vacancies = Vacancy::with('department')->latest()->get();
     // dd($vacancies);
 
-    $data = $vacancies->map(function ($vacancy) {
+    $data = $vacancies->map(function ($vacancy,$index) {
 
         $status = '';
         if ($vacancy->status == '0') {
@@ -52,7 +52,7 @@ class VacancyController extends Controller
         }
         $encrypt= Crypt::encrypt($vacancy->id);
         return [
-            'id' => $vacancy->id,
+             'no' => $index + 1, 
             'title' => $vacancy->title,
             'dept' => $vacancy->department->name,
             'due_date' => $vacancy->due_date->format('d M Y'),
@@ -132,7 +132,8 @@ class VacancyController extends Controller
         $decrypt=Crypt::decrypt($id);
         $vacancy = Vacancy::findOrFail($decrypt);
         $departments = Department::all();
-        return view('admin.pages.vacancy.edit', compact('vacancy','departments'));
+        $provinces = Province::all();
+        return view('admin.pages.vacancy.edit', compact('vacancy','departments','provinces'));
     }
     /**
      * Update the specified resource in storage.

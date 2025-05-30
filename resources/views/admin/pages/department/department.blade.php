@@ -88,7 +88,7 @@
             ajax: '{{ url("/admin-department/data") }}',
             stateSave: false,
             columns: [
-                { data: 'id' },
+                { data: 'no' },
                 { data: 'name' },
                 { data: 'action', orderable: false, searchable: false },
             ],

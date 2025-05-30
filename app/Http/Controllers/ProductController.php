@@ -25,10 +25,10 @@ class ProductController extends Controller
     {
     $products = Product::all();
 
-    $data = $products->map(function ($product) {
+    $data = $products->map(function ($product,$index) {
 
         return [
-            'id' => $product->id,
+             'no' => $index + 1, 
             'name' => $product->name,
             'description' => $product->description,
             'image' => asset('storage/' . $product->image)?? '',

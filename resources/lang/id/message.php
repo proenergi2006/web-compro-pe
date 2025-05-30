@@ -66,6 +66,7 @@ return [
     kecuali minyak yang memliki titik nyala sekitar 42 C (108 F) dan minyak yang dibakar di dalam kapas atau pembakar sumbu wol. Dalam arti ini, disel adalah suatu tipe dari minyak bakar. Minyak bakar terbuat dari rantai hidrokarbon yang panjang, khususnya alkana, sikloalkana dan aromatik. Istilah minyak bakar juga dipakai pada artian yang ketat untuk merujuk hanya pada bahan bakar komersial terberat yang bisa diperoleh dari minyak mentah, lebih berat dari bensin dan nafta.',
     'lubricant'         => '<strong>Pelumas</strong> adalah zat yang digunakan untuk menghambat keausan antar dua permukaan yang saling bergesekan. Suatu material zat cair dapat dikategorikan sebagai pelumas apabaila mengandung bahan baku dasar tertentu. Teknologi terbaru diterapkan untuk memperoleh ketahanan mesin dengan mengontrol kestabilan kekentalan pelumas.',
     'gasoline'          => '<strong>Gasoline</strong> adalah bensin tanpa timbal yang diformulasi. Gasoline High Octane direkomendasikan untuk kendaraan yang menggunakan mesin bensin setara dengan teknologi injeksi bahan bakar elektronik (EFI) dan konventer katalitik, serta semua jenis kendaraan yang kinerja mesinnya perlu ditingkatkan. Gasoline High Octane membuat mesin kendaraan bekerja lebih baik, lebih bertenaga, bebas dari kerusakan dan rendah emisi.',
+    'crushed_stone'     => 'Batu split berkualitas tinggi dari Pro Energi dirancang secara presisi untuk mendukung pembangunan jalan, fondasi, dan infrastruktur berskala besar dengan kekuatan dan keandalan yang teruji. Setiap muatan diproses dengan spesifikasi yang tepat guna memastikan daya tahan optimal, kepadatan maksimal, dan konsistensi material yang stabil—siap dikirim melalui truk atau tongkang langsung ke lokasi proyek Anda. Ideal untuk lapisan jalan, perkerasan kaku, beton siap pakai, perlindungan pantai, hingga fondasi industri berat, produk kami telah memenuhi standar SNI dan diverifikasi melalui pengujian laboratorium yang ketat. Didukung oleh jaringan logistik terintegrasi dan koordinasi menyeluruh dari pemesanan hingga pengiriman, kami tidak hanya menyediakan material, tetapi juga fondasi kokoh yang dibutuhkan setiap proyek.',
     
     //menu services
     'title_services'     => 'Layanan',
@@ -89,6 +90,7 @@ return [
     'read'               => 'Baca Lebih Lanjut',
     'nonews'             => 'Belum ada artikel yang tersedia.',
     'other'              => 'BERITA DAN ARTIKEL LAINNYA',
+    'morenews'           => 'Berita Lainnnya',
     'othercontent'       => 'Belum ada artikel tersedia',
 
     //menu karir
@@ -101,6 +103,7 @@ return [
     'li_3'               => 'Jika Anda menemukan penipuan penerimaan karyawan yang mengatasnamakan Pro Energi, harap melaporkan hal tersebut beserta bukti yang mencurigakan ke <a href="mailto:hrd@proenergi.com"> hrd@proenergi.com</a>',
     'nocareer'           => 'Belum ada lowongan tersedia saat ini',
     'avail'              => 'Pekerjaan tersedia',
+    'applyto'            => 'Lamar ke',
     'faq'                => 'Pertanyaan yang sering ditanyakan',
     'faq_1'              => 'Bagaimana cara untuk mengikuti proses rekrutmen di PT Pro Energi?',
     'faq_1_content'      => 'Silakan lihat posisi yang sedang dibuka di bagian “career”, pastikan kualifikasi dan persyaratan posisi tersebut sesuai dengan diri Anda, lalu ikuti arahan dari website untuk mengisi data diri dan mengunggah Curriculum Vitae Anda. Jika Anda lolos dari seleksi administrasi maka tim rekrutmen akan menghubungi Anda.',
@@ -132,4 +135,23 @@ return [
 
     //menu contact
     'title_contact'       => 'Kontak Kami',
+
+    //email penerima
+    'greeting'           => 'Terima kasih telah menghubungi Proenergi!',
+    'email_2'            => 'Pesan Anda telah kami terima, dan kami akan memberikan tanggapan secepat mungkin. Mohon untuk tidak membalas email ini secara langsung.',
+    'email_3'            => 'Apabila Anda memerlukan informasi lebih lanjut atau memiliki pertanyaan mendesak, silakan hubungi kami melalui email berikut:',
+    'regards'            => 'Hormat kami',
+    'your_message'       => 'Pesan Anda :',
+    'thank_you'          => 'Terima kasih, pesan Anda sudah terkirim.',
+    'error_send'         => 'Email gagal terkirim :',
+    'your_name'          => 'Nama',
+    'your_email'         => 'Email',
+    'your_subject'       => 'Judul',
+    'your_mess'          => 'Pesan',
+    'send'               => 'Kirim pesan',
+    'lets'               => 'Hubungi Kami',
+    
+    //email internal
+    'this'               => 'Email ini dikirim dari form hubungi kami pada ',
+
 ];

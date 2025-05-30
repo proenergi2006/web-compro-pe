@@ -95,7 +95,7 @@
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonText: 'Batal',
-                    confirmButtonText: 'Ya, hapus!'
+                    confirmButtonText: 'Ya, restore!'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
@@ -103,7 +103,7 @@
                             type: 'POST',
                             success: function (response) {
                                 Swal.fire('Berhasil!', response.message, 'success')
-                                    .then(() => reload());
+                                    .then(() => location.reload());
                             },
                             error: function () {
                                 Swal.fire('Gagal!', 'Terjadi kesalahan.', 'error');

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 // use App\Jobs\SendMailJob;
 use App\Mail\SendEmail;
+use App\Mail\SendEmailInternal;
 use App\Models\Messages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class SendEmailController extends Controller
@@ -15,8 +17,10 @@ class SendEmailController extends Controller
         return view('company.pages.contact');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $locale = 'en')
     {
+        //  app()->setLocale($locale);
+        App::setLocale($locale); 
         // $data = $request->all();
         $validated = $request->validate([
             'name' => 'required',
@@ -26,13 +30,25 @@ class SendEmailController extends Controller
         ]);
 
         // Simpan ke database
-        Messages::create($validated);
+        // Messages::create($validated);
 
         // Kirim email
+        $contact='';
+        if($request->subject == 'Career'){
+            $contact ='hrd@proenergi.com';
+        }else{
+            $contact = ['info@proenergi.com','customer.service@proenergi.com'];
+        }
+
         Mail::to($request->email)->send(new SendEmail($validated));
+        Mail::to($contact)->send(new SendEmailInternal($validated));
 
         // dispatch(new SendEmail($validated));
         // return redirect()->back()->with('status', 'Email berhasil dikirim!');
          return response()->json(['message' => 'Email sent successfully']);
+        // return response()->json([
+        //     'message' => __('messages.thank_you')
+        // ]);
     }
+
 }

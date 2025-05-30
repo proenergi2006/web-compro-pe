@@ -71,7 +71,7 @@
             ajax: '{{ url("/admin-articles/data") }}',
             stateSave: false,
             columns: [
-                { data: 'id' },
+                { data: 'no' },
                 {
                     data: 'thumbnail',
                     render: function(data, type, row) {

@@ -65,6 +65,7 @@ return [
                             except oils having a flash point of approximately 42 °C (108 °F) and oils burned in cotton or wool-wick burners. In this sense, diesel is a type of fuel oil. Fuel oil is made of long hydrocarbon chains, particularly alkanes, cycloalkanes and aromatics. The term fuel oil is also used in a stricter sense to refer only to the heaviest commercial fuel that can be obtained from crude oil, i.e., heavier than gasoline and naphtha.',
     'lubricant'         => '<strong>Lubricant</strong> is a substance, which serves to reduce the wear between two surfaces moving objects rubbing together. A liquid material can be categorized as a lubricant if it contains the basic ingredient. New technology applied for engine sustainability by control the viscosity stability.',
     'gasoline'          => '<strong>Gasoline</strong> is a formulated unleaded gasoline. Gasoline High Octane is recommended for vehicles that use gasoline engines equivalent of technology with electronic fuel injection (EFI) and catalytic converters, as well as for all types of vehicles seeking to improve the performance of the machine. Gasoline High Octane makes a vehicle work better, more powerful, knock-free and low emissions.',
+    'crushed_stone'          => 'Pro Energi’s high-performance crushed stone is meticulously engineered to support roads, foundations, and large-scale infrastructure with exceptional strength and reliability. Each batch is processed to precise specifications, ensuring optimal durability, compaction, and material consistency—delivered efficiently by truck or barge, directly to your project site. Ideal for road base layers, rigid pavement, concrete production, coastal protection, and heavy industrial foundations, our crushed stone meets SNI standards and is verified through rigorous laboratory testing. Backed by Pro Energi’s integrated logistics network and end-to-end coordination, we offer customizable gradation and dependable supply—delivering not just material, but the solid groundwork every project demands',
 
     //menu services
     'title_services'     => 'Services',
@@ -87,6 +88,7 @@ return [
     'crude'              => 'Crude Oil Prices',
     'other'              => 'OTHER NEWS & ARTICLES',
     'read'               => 'Read More',
+    'morenews'           => 'More News',
     'nonews'             => 'No articles posted yet',
     'othercontent'       => 'No articles posted yet',
 
@@ -100,6 +102,8 @@ return [
     'li_3'               => 'If you find any fraudulent recruitment activities, published on behalf of Pro Energi, please report and provide the supporting evidence to <a href="mailto:hrd@proenergi.com"><u>hrd@proenergi.com</u></a>',
     'nocareer'           => 'No job vacancies posted yet',
     'avail'              => 'Available Jobs',
+    'applyto'            => 'Apply to',
+    'said'               => 'What they say',
     'faq'                => 'Frequently Asked Question',
     'faq_1'              => 'How can I participate in the recruitment process at PT Pro Energi?',
     'faq_1_content'      => 'Please check the open positions listed in the “Career” section. Make sure the qualifications and requirements match your profile, then follow the instructions on the website to fill out your personal information and upload your Curriculum Vitae. If you pass the administrative selection, our recruitment team will contact you.',
@@ -108,7 +112,15 @@ return [
     'faq_3'              => 'How long is the recruitment process at PT Pro Energi?',
     'faq_3_content'      => 'The recruitment process takes approximately 1-2 months until you are officially accepted at PT Pro Energi.',
     'faq_4'              => 'What are the recruitment stages at PT Pro Energi?',
-    'faq_4_content'      => 'The recruitment process takes approximately 1-2 months until you are officially accepted at PT Pro Energi.',
+    'faq_4_content'      => '<ol type="a">
+                                <li>Administrative Selection</li>
+                                <li>Online Psychometric Test</li>
+                                <li>HR Interview</li>
+                                <li>User Interview</li>
+                                <li>External Assessment</li>
+                                <li>Salary Offering</li>
+                                <li>Medical Check-Up</li>
+                            </ol>',
     'faq_5'              => 'Where are the job placements at PT Pro Energi?',
     'faq_5_content'      => 'PT Pro Energi’s head office is located in South Jakarta, with several branch offices in Palembang, Surabaya, Samarinda, Pontianak, and Banjarmasin. You will be assigned to a location according to the job opening you applied for (as listed in the job vacancies table).',
     'faq_6'              => 'Is the recruitment process conducted online or offline?',
@@ -123,4 +135,22 @@ return [
    
     //menu Contact
     'title_contact'       => 'Contact Us',
+
+    //email penerima
+    'greeting'           => 'Thank you for contacting Proenergi!',
+    'email_2'            => 'Thank you for contacting Proenergi. This is to confirm that we have received your message. Our team will respond to your inquiry as soon as possible.',
+    'email_3'            => 'Please do not reply to this automated email. If you require further assistance or have an urgent matter, feel free to contact us at: ',
+    'regards'            => 'Best Regards',
+    'your_message'       => 'Your Message : ',
+    'thank_you'          => 'Thank you, your message successfully sent.',
+    'error_send'         => 'Email failed sent : ',
+    'your_name'          => 'Your Name',
+    'your_email'         => 'Your Email',
+    'your_subject'       => 'Choose Subject',
+    'your_mess'          => 'Your Message',
+    'send'               => 'Send Message',
+    'lets'               => 'Let’s Get in Touch',
+
+    //email internal
+    'this'               => 'This e-mail was sent from a contact form on',
 ];

@@ -118,7 +118,7 @@
             ajax: '{{ url("/admin-products/data") }}',
             stateSave: false,
             columns: [
-                { data: 'id' },
+                { data: 'no' },
                 {
                     data: 'image',
                     render: function(data, type, row) {

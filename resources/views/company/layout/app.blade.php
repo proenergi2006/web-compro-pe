@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/animate.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/swiper.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/nouislider.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/odometer.min.css')}}">
@@ -23,11 +23,18 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/spacing.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/remixicon.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flag-icons.min.css') }}">
     @yield('css')
 </head>
 
 <body class="rs-smoother-yes rtl">
 
+    <div id="splash-screen">
+        <div class="splash-inner">
+            <div class="splash-year" id="splash-year">2006</div>
+           {{-- <img id="splash-logo" src="{{ asset('assets/images/logo_pe.png') }}" width="300px" alt="Logo" class="logo-fade" /> --}}
+        </div>
+    </div>
     <!-- preloader start -->
     <div id="pre-load">
         <div id="loader" class="loader">
@@ -71,8 +78,10 @@
                         </nav>
                     </div>
                     <div class="rs-header-right">
-                        <a href="{{ url('/en') }}"> 🇬🇧 </a> |
-                        <a href="{{ url('/id') }}">🇮🇩 </a>
+                         <ul class="multipage-menu" style="color: black">Lang :
+                   </ul>    
+                        <a href="{{ url('/en') }}"> <span class="fi fi-gb" style="width: 20px; height: auto;"></span>  </a> |
+                        <a href="{{ url('/id') }}"><span class="fi fi-id"  style="width: 20px; height: auto;"></span> </a>
                         <!-- sidebar start -->
                         <div class="rs-header-hamburger toggle-mobile-only">
                             <div class="sidebar-toggle">
@@ -182,7 +191,52 @@
     <script src="{{ asset('assets/js/plugins/jquery.nivo.slider.js')}}"></script>
 
     @yield('script')
-    
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const splash = document.getElementById("splash-screen");
+    const yearText = document.getElementById("splash-year");
+    let startYear = 2006;
+    const endYear = 2025;
+    const delay = 100; // ms per tahun
+
+    const logo = document.getElementById('splash-logo');
+
+ 
+    function showNextYear() {
+      if (startYear <= endYear) {
+        yearText.textContent = startYear;
+        startYear++;
+        setTimeout(showNextYear, delay);
+      } else {
+            // Setelah selesai, hilangkan splash
+            // splash.style.transition = 'opacity 1.5s';
+            // splash.style.opacity = 0;
+            // setTimeout(() => splash.style.display = 'none', 1600);
+           // Munculkan logonya perlahan
+           // Ganti elemen tahun dengan logo
+            yearText.style.transition = 'opacity 0.5s';
+            yearText.style.opacity = 0; // Hilangkan teks tahun
+
+            setTimeout(() => {
+            yearText.style.display = 'none'; // Sembunyikan elemen tahun
+            logo.style.opacity = 1; // Munculkan logo
+            }, 600); // Waktu sedikit setelah tahun menghilang
+
+            // Setelah logo muncul, tutup splash
+            setTimeout(() => {
+            splash.style.transition = 'opacity 1.5s';
+            splash.style.opacity = 0;
+            setTimeout(() => splash.style.display = 'none', 1600);
+            }, 2000); // Tunggu 4 detik sebelum splash ditutup
+            
+      }
+    }
+
+    showNextYear();
+  });
+</script>
+
+
 </body>
 
 </html>
