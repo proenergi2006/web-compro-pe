@@ -468,12 +468,13 @@ Sidebar Toggle
             } else {
                 $(".backtotop-wrap").removeClass("active-progress");
             }
-
             // Sticky Header
-            if ($(this).scrollTop() > 250) {
+            if ($(this).scrollTop() > 100) {
                 $("#header-sticky").addClass("rs-sticky");
+                 $("#logo-icon").attr("src", window.logoUrl);
             } else {
                 $("#header-sticky").removeClass("rs-sticky");
+                $("#logo-icon").attr("src", window.logoUrlWhite);
             }
         });
         $(".backtotop-wrap").on("click", function (event) {
@@ -861,7 +862,7 @@ Sidebar Toggle
                 if (!id) return
                 const target = document.getElementById(id)
                 if (target) {
-                   lenis.scrollTo(target, { duration: 1.2, easing: (t) => t })
+                   lenis.scrollTo(target, { duration: 1.5, easing: (t) => t })
 
                     // target.scrollIntoView({ behavior: 'smooth' })
                 }

@@ -5,10 +5,16 @@
 <h1 class="h3 mb-3">Dashboard</h1>
 
 @if(auth()->user()->role === 'hr')
-    @include('admin.pages.dashboard_hr')
-    
+	@include('admin.pages.dashboard_hr', ['data' => $data])
+@elseif(auth()->user()->role === 'article')
+    @include('admin.pages.dashboard_article', ['data' => $data])
+@elseif(auth()->user()->role === 'content')
+    @include('admin.pages.dashboard_content', ['data' => $data])
+@else
+    @include('admin.pages.dashboard_admin', ['data' => $data])
 @endif
 @endsection
+
 
 @section('scripts')
     {{-- <script src="{{ asset('assets/js/plugins/chartjs.min.js')}}"></script>

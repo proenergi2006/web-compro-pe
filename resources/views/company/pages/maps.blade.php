@@ -17,6 +17,7 @@
                     <div class="location-item location-established" data-name="Palembang">Palembang</div>
                     <div class="location-item location-established" data-name="Pontianak">Pontianak</div>
                     <div class="location-item location-established" data-name="Banjarmasin">Banjarmasin</div>
+                    <div class="location-item location-established" data-name="Makassar dan Palu">Makassar dan Palu</div>
                 </div>
             </div>
         </div>
@@ -34,9 +35,8 @@
                         <div class="location-item location-progress" data-name="Riau">Riau (On Progress)</div>
                         <div class="location-item location-progress" data-name="Central Kalimantan">Central Kalimantan (On Progress)</div>
                         <div class="location-item location-progress" data-name="North Kalimantan">North Kalimantan (On Progress)</div>
-                        <div class="location-item location-progress" data-name="Makassar dan Palu">Makassar dan Palu (On Progress)</div>
                         <div class="location-item location-progress" data-name="Medan">Medan (On Progress)</div>
-                        <div class="location-item location-progress" data-name="Palu">Palu (On Progress)</div>
+                        <div class="location-item location-progress" data-name="Lampung">Lampung (On Progress)</div>
                     </div>
                 </div>
             </div>

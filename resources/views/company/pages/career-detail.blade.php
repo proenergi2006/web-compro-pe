@@ -1,5 +1,8 @@
 @extends('company.layout.main')
 
+
+@section('title', __('message.nav_career') .' - Pro Energi')
+
 @section('css')
 {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
     

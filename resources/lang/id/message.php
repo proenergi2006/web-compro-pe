@@ -14,6 +14,7 @@ return [
     'view'       => 'Lihat Gambar',
     'welcome'    => 'Selamat datang di website kami!',
     'about'      => 'TENTANG KAMI',
+    'about_us'   => 'Tentang Kami',
     'ourproduct' => 'PRODUK KAMI',
     'ourservice' => 'LAYANAN KAMI',
     'ournetwork' => 'JARINGAN KAMI',

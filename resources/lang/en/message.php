@@ -12,7 +12,8 @@ return [
 
     'view'       => 'View Image',
     'welcome'    => 'welcome',
-    'about'      => 'ABOUT US',
+    'about'      => 'WHO WE ARE',
+    'about_us'   => 'About Us',
     'ourproduct' => 'OUR PRODUCT',
     'ourservice' => 'OUR SERVICES',
     'ournetwork' => 'OUR NETWORK',

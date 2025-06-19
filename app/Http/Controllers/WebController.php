@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Vacancy;
 use App\Models\Department;
+use App\Models\Testimonial;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -56,7 +57,8 @@ class WebController extends Controller
         ->where('due_date', '>=', Carbon::today())
         ->latest()
         ->paginate(10);
-        return view('company.pages.careers',compact('vacancies'));
+        $testimonials = Testimonial::where('status', 1)->latest()->limit(5)->get();
+        return view('company.pages.careers',compact('vacancies','testimonials'));
     }
 
     public function showVacancy($slug)
@@ -64,4 +66,5 @@ class WebController extends Controller
         $vacancy = Vacancy::where('slug', $slug)->firstOrFail();
         return view('company.pages.career-detail', compact('vacancy'));
     }
+
 }

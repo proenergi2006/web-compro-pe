@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -8,9 +9,12 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SendEmailController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\WebController;
 use App\Mail\SendEmail;
+use App\Models\Activity;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -40,6 +44,7 @@ Route::get('/', function () {
 
 Route::post('/form-submit', [CandidateController::class, 'store'])->name('form.submit');
 
+//web company profile
 Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|id']], function () {
 
     Route::get('/', [WebController::class, 'index']);
@@ -89,9 +94,11 @@ Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.pages.dashboard');
-    });
+    // Route::get('/dashboard', function () {
+    //     return view('admin.pages.dashboard');
+    // });
+    
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     //admin articles management
     Route::get('admin-articles', [ArticleController::class, 'index'])->name('admin.articles');
@@ -122,49 +129,70 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('user-management', [HomeController::class, 'userManagement'])->name('user.management');
     Route::post('user-register', [HomeController::class, 'createUser'])->name('user.register');
+    Route::get('/admin-users/data', [HomeController::class, 'getData']);
+
+    Route::post('/change-password', [HomeController::class, 'changePassword'])->name('change.password');
+
 });
 
 Route::middleware(['auth', 'role:hr,admin'])->group(function () {
-//admin department management
-Route::get('admin-department', [DepartmentController::class, 'index'])->name('admin.department');
-// Route::get('add-department', [DepartmentController::class, 'create'])->name('add.department');
-Route::post('admin-departments', [DepartmentController::class, 'store'])->name('store.department');
-Route::get('/admin-department/data', [DepartmentController::class, 'getData']);
-Route::get('edit-department/{id}', [DepartmentController::class, 'edit'])->name('edit.department');
-Route::put('edit-department/{department}', [DepartmentController::class, 'update'])->name('update.department');
-Route::delete('/delete-department/{id}', [DepartmentController::class, 'destroy']);
+    //admin department management
+    Route::get('admin-department', [DepartmentController::class, 'index'])->name('admin.department');
+    // Route::get('add-department', [DepartmentController::class, 'create'])->name('add.department');
+    Route::post('admin-departments', [DepartmentController::class, 'store'])->name('store.department');
+    Route::get('/admin-department/data', [DepartmentController::class, 'getData']);
+    Route::get('edit-department/{id}', [DepartmentController::class, 'edit'])->name('edit.department');
+    Route::put('edit-department/{department}', [DepartmentController::class, 'update'])->name('update.department');
+    Route::delete('/delete-department/{id}', [DepartmentController::class, 'destroy']);
 
-//admin Vacancies management
-Route::get('admin-vacancies', [VacancyController::class, 'index'])->name('admin.vacancies');
-Route::get('add-vacancy', [VacancyController::class, 'create'])->name('add.vacancy');
-Route::post('admin-vacancies', [VacancyController::class, 'store'])->name('store.vacancy');
-Route::get('/admin-vacancies/data', [VacancyController::class, 'getData']);
-Route::get('edit-vacancy/{id}', [VacancyController::class, 'edit'])->name('edit.vacancy');
-Route::put('edit-vacancy/{vacancy}', [VacancyController::class, 'update'])->name('update.vacancy');
-Route::get('show-vacancy/{id}', [VacancyController::class, 'show'])->name('show.vacancy');
-Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
-Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
-Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);
+    //admin Vacancies management
+    Route::get('admin-vacancies', [VacancyController::class, 'index'])->name('admin.vacancies');
+    Route::get('add-vacancy', [VacancyController::class, 'create'])->name('add.vacancy');
+    Route::post('admin-vacancies', [VacancyController::class, 'store'])->name('store.vacancy');
+    Route::get('/admin-vacancies/data', [VacancyController::class, 'getData']);
+    Route::get('edit-vacancy/{id}', [VacancyController::class, 'edit'])->name('edit.vacancy');
+    Route::put('edit-vacancy/{vacancy}', [VacancyController::class, 'update'])->name('update.vacancy');
+    Route::get('show-vacancy/{id}', [VacancyController::class, 'show'])->name('show.vacancy');
+    Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
+    Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
+    Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);
 
-//admin Vacancies management
-Route::get('admin-candidates', [CandidateController::class, 'index'])->name('admin.candidates');
-// Route::get('add-vacancy', [VacancyController::class, 'create'])->name('add.vacancy');
-// Route::post('admin-vacancies', [VacancyController::class, 'store'])->name('store.vacancy');
-Route::get('/admin-candidates/data', [CandidateController::class, 'getData']);
-Route::get('get-candidate/{id}', [CandidateController::class, 'index_candidate'])->name('get.candidates');
-Route::get('detail-candidate/{id}', [CandidateController::class, 'show'])->name('show.candidate');
-// Route::get('edit-vacancy/{id}', [VacancyController::class, 'edit'])->name('edit.vacancy');
-// Route::put('edit-vacancy/{vacancy}', [VacancyController::class, 'update'])->name('update.vacancy');
-// Route::delete('/delete-vacancy/{id}', [VacancyController::class, 'destroy']);
-// Route::get('/publish-vacancy/{id}', [VacancyController::class, 'publishVacancy']);
-// Route::get('/draft-vacancy/{id}', [VacancyController::class, 'draftVacancy']);
+    //admin Vacancies management
+    Route::get('admin-candidates', [CandidateController::class, 'index'])->name('admin.candidates');
+    Route::get('/admin-candidates/data', [CandidateController::class, 'getData']);
+    Route::get('get-candidate/{id}', [CandidateController::class, 'index_candidate'])->name('get.candidates');
+    Route::get('detail-candidate/{id}', [CandidateController::class, 'show'])->name('show.candidate');
+
+    //admin testimonials management
+    Route::get('admin-testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials');
+    Route::get('add-testimonial', [TestimonialController::class, 'create'])->name('add.testimonial');
+    Route::post('admin-testimonials', [TestimonialController::class, 'store'])->name('store.testimonial');
+    Route::get('/admin-testimonials/data', [TestimonialController::class, 'getData']);
+    Route::get('edit-testimonial/{id}', [TestimonialController::class, 'edit'])->name('edit.testimonial');
+    Route::put('edit-testimonial/{testimonial}', [TestimonialController::class, 'update'])->name('update.testimonial');
+    Route::get('show-testimonial/{id}', [TestimonialController::class, 'show'])->name('show.testimonial');
+    Route::delete('/delete-testimonial/{id}', [TestimonialController::class, 'destroy']);
+    Route::get('/publish-testimonial/{id}', [TestimonialController::class, 'publishTestimonial']);
+    Route::get('/draft-testimonial/{id}', [TestimonialController::class, 'draftTestimonial']);
+
+    Route::get('admin-activities', [ActivityController::class, 'index'])->name('admin.activities');
+    Route::get('add-activity', [ActivityController::class, 'create'])->name('add.activity');
+    Route::post('admin-activities', [ActivityController::class, 'store'])->name('store.activity');
+    Route::get('/admin-activities/data', [ActivityController::class, 'getData']);
+    Route::get('edit-activity/{id}', [ActivityController::class, 'edit'])->name('edit.activity');
+    Route::put('edit-activity/{activity}', [ActivityController::class, 'update'])->name('update.activity');
+    Route::get('show-activity/{id}', [ActivityController::class, 'show'])->name('show.activity');
+    Route::get('/draft-activity/{id}', [ActivityController::class, 'draftactivity']);
+    Route::delete('/delete-activity/{id}', [ActivityController::class, 'destroy']);
+    Route::get('trashed-activity', [ActivityController::class, 'trashedactivity'])->name('trashed.activitys');
+    Route::post('/restore-activity/{id}', [ActivityController::class, 'restoreactivity']);
 });
 
 // Route::get('/company', function () {
 //     return view('company.pages.onepage');
 // });
 
-// Route::get('/test', function () {
-//     return view('company.pages.test');
-// });
+Route::get('/test', function () {
+    return view('company.pages.test');
+});
 

@@ -36,7 +36,7 @@
                     </span>
                 @endif
                 <div class="m-sm-2">
-                    <form action="{{ route('store.vacancy') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('store.vacancy') }}" method="POST" enctype="multipart/form-data" id="add-vacancy-form">
                         @csrf
                 
                         <div class="col-md-7 mb-3">
@@ -65,7 +65,7 @@
                             <label class="form-label">Employee Status</label>
                             <select name="employee_status" class="form-select mb-3" required>
                                 <option value="" selected>choose employee status</option>
-                                <option value="permanent">Permanet</option>
+                                <option value="permanent">Permanent</option>
                                 <option value="contract">Contract</option>
                                 <option value="internship">Internship</option>
                             </select>
@@ -106,7 +106,7 @@
 <script src="{{ asset('adm_assets/js/select2.min.js')}}"></script>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
         $('.location_id').select2();
     });
    document.querySelectorAll('#editor, #editor2').forEach((el) => {
@@ -115,6 +115,24 @@
         .catch(error => {
             console.error(error);
         });
+
+    $('#add-vacancy-form').on('submit', function(e) {
+        e.preventDefault(); // Mencegah form disubmit langsung
+
+        // Tampilkan SweetAlert untuk konfirmasi
+        Swal.fire({
+            title: '<strong style="font-size: 20px;">Apakah Anda yakin ingin simpan?</strong>',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, simpan!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika dikonfirmasi, kirimkan form
+                $(this).off('submit').submit(); // Form disubmit
+            }
+        });
+    })
 });
 
 

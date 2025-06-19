@@ -1,5 +1,8 @@
 @extends('company.layout.main')
 
+
+@section('title', __('message.about_us').' - Pro Energi')
+
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 
@@ -371,8 +374,6 @@ blockquote {
                                         <div class="row g-5">
                                         <section class="timeline">
                                             <div class="container">
-                                                
-
                                                 <!-- ITEM 1 -->
                                                 <div class="timeline-item">
                                                 <div class="timeline-img"></div>

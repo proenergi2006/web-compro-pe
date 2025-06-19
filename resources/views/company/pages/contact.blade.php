@@ -1,5 +1,7 @@
 @extends('company.layout.main')
 
+@section('title', __('message.nav_contact') . ' - Pro Energi')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css')}}">
     <style>
@@ -64,7 +66,6 @@
                             <div class="spinner"></div>
                         </div>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.113312314931!2d106.83133901944846!3d-6.233828917368586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3eedebde489%3A0xc9edb769a02d0eaf!2sPT.%20Pro%20Energi!5e0!3m2!1sid!2sid!4v1744791367437!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        
                         <div class="rs-contact-form rs-contact-four">
                             <div id="responseMessage"></div>
                             <div class="rs-contact-form-bg-thumb" data-background="{{asset('assets/images/bg/contact-bg-03.png')}}"></div>

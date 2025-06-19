@@ -3002,13 +3002,13 @@ background: linear-gradient(129deg, rgba(255, 163, 82, 1) 0%, rgba(255, 255, 255
 /*  2.6 Breadcrumb
 /*----------------------------------------*/
 .rs-breadcrumb-one {
-  padding-top: 140px;
-  padding-bottom: 140px;
+  padding-top: 130px;
+  padding-bottom: 130px;
 }
 @media only screen and (max-width: 1199px) {
   .rs-breadcrumb-one {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 110px;
+    padding-bottom: 110px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -5793,6 +5793,31 @@ html.lenis body {
   z-index: 99;
   padding: 0 85px;
 }
+.rs-header-two .main-menu li a{
+  color: white;
+}
+.rs-header-two.header-transparent.rs-sticky{
+  background: white;
+}
+.rs-header-two.header-transparent.rs-sticky .main-menu li a{
+  color: black;
+}
+.rs-header-two.header-transparent.rs-sticky .main-menu li a{
+  color: black;
+}
+.rs-header-two.header-transparent.rs-sticky .main-menu ul li.active > a {
+  color: var(--rs-theme-orange);
+}
+.rs-header-two.header-transparent.rs-sticky .main-menu ul li a.active {
+  color: var(--rs-theme-orange);
+}
+.rs-header-two.header-transparent .rs-header-right ul{
+  color:white;
+}
+.rs-header-two.header-transparent.rs-sticky .rs-header-right ul{
+  color:black;
+}
+
 @media only screen and (max-width: 1600px) {
   /* .rs-header-two .rs-header-inner {
     padding: 0 30px;
@@ -5824,7 +5849,7 @@ html.lenis body {
   content: "";
   width: 1px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
   inset-inline-end: 0;
   top: -7px;
 }
@@ -5881,6 +5906,13 @@ html.lenis body {
   color: var(--rs-white);
 }
 .rs-header-two .sidebar-toggle .bar-icon svg path {
+  /* fill: var(--rs-black); */
+   fill: var(--rs-white);
+}
+.rs-header-two.has-bg-white .sidebar-toggle .bar-icon svg path {
+  fill: var(--rs-black);
+}
+.rs-header-two.header-transparent.rs-sticky .sidebar-toggle .bar-icon svg path {
   fill: var(--rs-black);
 }
 
@@ -6746,7 +6778,7 @@ html.lenis body {
   width: 100%;
   -webkit-animation: 600ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 600ms ease-in-out 0s normal none 1 running fadeInDown;
-  background: var(--rs-white);
+  /* background: var(--rs-black); */
   border-top: 0;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.07);
 }
@@ -6978,6 +7010,61 @@ html.lenis body {
 /*----------------------------------------*/
 /*  3.1.2 banner Style 2
 /*----------------------------------------*/
+.video-background {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.video-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: black;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+
+.video-bg {
+    position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.video-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.332);
+  z-index: -1;
+}
+
+.video-bg iframe {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 60vw;
+  z-index: -2;
+}
+
 .rs-banner-two .rs-banner-bg-thumb {
   position: absolute;
   width: 100%;
@@ -6989,7 +7076,16 @@ html.lenis body {
   background-size: cover;
   z-index: -1;
 }
-.rs-banner-two .rs-banner-wrapper {
+.rs-banner-two .video-background::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.45;
+  z-index: -1;
+}
+/* .rs-banner-two .rs-banner-wrapper {
   padding: 300px 0 345px;
 }
 @media only screen and (max-width: 1366px) {
@@ -7011,7 +7107,31 @@ html.lenis body {
   .rs-banner-two .rs-banner-wrapper {
     padding: 150px 0 230px;
   }
+} */
+ .rs-banner-two .rs-banner-wrapper {
+  /* padding: 500px 0 345px; */
+  padding-top: 75vh;
 }
+/* @media only screen and (max-width: 1366px) {
+  .rs-banner-two .rs-banner-wrapper {
+    padding: 380px 0 290px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .rs-banner-two .rs-banner-wrapper {
+    padding: 350px 0 270px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .rs-banner-two .rs-banner-wrapper {
+    padding: 330px 0 250px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .rs-banner-two .rs-banner-wrapper {
+    padding: 400px 0 230px;
+  }
+} */
 .rs-banner-two .rs-banner-title {
   font-size: 75px;
   color: var(--rs-white);
@@ -7039,7 +7159,7 @@ html.lenis body {
   }
 }
 .rs-banner-two .rs-banner-descrip {
-  margin: 25px 0 45px;
+  margin: 25px 0 40px;
   max-width: 620px;
 }
 .rs-banner-two .rs-banner-descrip p {
@@ -9267,7 +9387,7 @@ html.lenis body {
 
 /* header white */
 .rs-header-area.has-bg-white {
-  background: rgba(255, 255, 255, 0.567);
+  background: rgba(255, 255, 255, 0.54);
 }
 .rs-header-area.has-bg-white.rs-sticky {
   background: rgba(255, 255, 255, 0.936);
@@ -10451,18 +10571,63 @@ html.lenis body {
   border-radius: 4px;
 }
 .rs-postbox-details-title {
-  font-size: 40px;
+  font-size: 35px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.img-hover-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.img-hover-wrapper img {
+  display: block;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+/* Overlay putih saat hover */
+.img-hover-wrapper::after {
+  content: "";
+  background: rgba(255, 255, 255, 0.7); /* warna putih semi-transparan */
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+/* Tulisan di atas gambar */
+.hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000; /* warna teks */
+  z-index: 2;
+  opacity: 0;
+  text-align: center;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.img-hover-wrapper:hover::after {
+  opacity: 1;
+}
+
+.img-hover-wrapper:hover .hover-content {
+  opacity: 1;
+}
 @media only screen and (max-width: 1600px) {
   .rs-postbox-details-title {
-    font-size: 35px;
+    font-size: 30px;
   }
 }
 @media only screen and (max-width: 1199px) {
   .rs-postbox-details-title {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 .rs-postbox-details-video {
@@ -15994,7 +16159,7 @@ html.lenis body {
 }
 .rs-testimonial-four .rs-testimonial-slider-wrapper .swiper-slide.swiper-slide-active {
   /* background-color: #fbac59; */
-  background-color: #F9FAFA;
+  background-color: #faf9f9;
   box-shadow: 0px 10px 20px -20px rgba(0, 0, 0, 0.24);
 }
 .rs-testimonial-four .rs-testimonial-item {
@@ -20474,7 +20639,7 @@ html.lenis body {
   text-align: center;
   margin-inline-end: 85px;
 }
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 2000px) {
   .rs-contact-four.rs-contact-form {
     padding: 30px 30px 30px 30px;
     margin-inline-end: 0px;
@@ -26082,7 +26247,7 @@ a.ui-button:active {
   -webkit-box-shadow: 0 0 5px #666;
   box-shadow: 0 0 5px #666;
 }
-#splash-screen {
+/* #splash-screen {
   position: fixed;
   z-index: 99999;
   width: 100vw;
@@ -26102,18 +26267,70 @@ a.ui-button:active {
 }
 
 .splash-year {
-  font-size: 250px;
+  font-size: 400px;
   position: relative;
   color: #f89c56;
-  /* -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   color: transparent;
   -webkit-text-stroke-width: 5px;
   stroke-width: 5px;
   -webkit-text-stroke-color: rgb(255, 141, 0);
-  stroke: rgb(255, 141, 0); */
-  font-weight: 800;
+  stroke: rgb(255, 141, 0);
+  font-weight: 500;
   animation: fadeIn 0.3s ease-in-out;
+} */
+
+/* @media only screen and (max-width: 767px) {
+  .splash-year {
+    font-size: 100px;
+  }
+} */
+#splash-screen {
+  position: fixed;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
 }
+
+#splash-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-inner {
+  position: relative;
+  width: 500px; /* atur ukuran tetap agar tidak shifting */
+  height: 500px;
+}
+
+.splash-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Teks tahun */
+.splash-year {
+  font-size: 500px;
+  color: transparent;
+  -webkit-text-stroke: 8px rgb( 209, 209, 209 );
+  z-index: 1;
+}
+
+/* Logo */
+.splash-inner img {
+  width: 200px;
+  z-index: 2;
+}
+
 .logo-fade {
   opacity: 0;
   transition: opacity 1.5s ease-in;

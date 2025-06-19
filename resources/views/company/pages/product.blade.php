@@ -1,5 +1,7 @@
 @extends('company.layout.main')
 
+@section('title', __('message.nav_product') . ' - Pro Energi')
+
 
 @section('cssnice')
 <link rel="stylesheet" href="{{ asset('assets/css/plugins/nice-select.css')}}">

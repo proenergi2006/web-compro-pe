@@ -1,5 +1,7 @@
 @extends('company.layout.main')
 
+@section('title', __('message.nav_news'). ' - Pro Energi')
+
 @section('content')
     <!-- breadcrumb area start -->
     <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">

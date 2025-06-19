@@ -51,6 +51,16 @@
                 <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Candidates</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ request()->is('*-testimonial*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ url('admin-testimonials')}}">
+                <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">Testimonials</span>
+                </a>
+            </li>
+            <li class="sidebar-item {{ request()->is('*-activit*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ url('admin-activities')}}">
+                <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">Activities</span>
+                </a>
+            </li>
             @endif
  
         </ul>

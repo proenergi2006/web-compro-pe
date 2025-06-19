@@ -1,5 +1,5 @@
 @extends('company.layout.main')
-
+@section('title', __('message.nav_network') . ' - Pro Energi')
 
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -197,6 +197,13 @@ z-index: 1;
                 Fax : 0511-6773900`
         },
         {
+            name: 'Makassar dan Palu',
+            lat: -2.5,
+            lng: 120.0,
+            type: 'Established',
+            info: 'Makassar dan Palu'
+        },
+        {
             name: 'Semarang',
             lat: -6.9667,
             lng: 110.4167,
@@ -223,13 +230,6 @@ z-index: 1;
             lng: 116.0414,
             type: 'On Progress',
             info: 'North Kalimantan (Coming Soon)'
-        },
-        {
-            name: 'Makassar & Palu',
-            lat: -2.5,
-            lng: 120.0,
-            type: 'On Progress',
-            info: 'Makassar & Palu (Coming Soon)'
         },
         {
             name: 'Medan',

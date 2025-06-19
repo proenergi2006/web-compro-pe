@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <a href="{{ route('admin.articles')}}" class="btn btn-md btn-secondary">Back</a>
-                <a href="{{ route('edit.article', $article->id)}}" class="btn btn-warning"><i data-feather="edit"></i> Edit</a>
+                <a href="{{ route('edit.article', Crypt::encrypt($article->id))}}" class="btn btn-warning"><i data-feather="edit"></i> Edit</a>
                 @if ($article->status == 0)
                     <button class="btn btn-primary btn-publish" data-id="{{ $article->id }}">
                         <i data-feather="upload"></i> Publish

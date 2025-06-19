@@ -158,7 +158,7 @@ class ArticleController extends Controller
             }
             
             // Simpan thumbnail baru
-            $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
+           $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
         } else {
             $thumbnailPath = $article->thumbnail; // pakai yang lama jika tidak upload baru
         }

@@ -31,10 +31,18 @@
 
     <div id="splash-screen">
         <div class="splash-inner">
-            <div class="splash-year" id="splash-year">2006</div>
-           {{-- <img id="splash-logo" src="{{ asset('assets/images/logo_pe.png') }}" width="300px" alt="Logo" class="logo-fade" /> --}}
+            <div class="splash-layer splash-year" id="splash-year">2006</div>
+            <img class="splash-layer" src="{{ asset('assets/images/logo_pe.png')}}" alt="logo">
         </div>
     </div>
+
+    {{-- <div id="splash-screen">
+        <div class="splash-inner">
+            <img src="{{ asset('assets/images/logo_pe.png')}}" alt="logo">
+            <div class="splash-year" id="splash-year">2006</div>
+           <img id="splash-logo" src="{{ asset('assets/images/logo_pe.png') }}" width="300px" alt="Logo" class="logo-fade" />
+        </div>
+    </div> --}}
     <!-- preloader start -->
     <div id="pre-load">
         <div id="loader" class="loader">
@@ -55,12 +63,12 @@
 
     <!-- Header area start -->
     <header>
-        <div class="rs-header-area rs-header-two header-transparent has-bg-white has-border" id="header-sticky">
+        <div class="rs-header-area rs-header-two header-transparent" id="header-sticky">
             <div class="container-fluid">
                 <div class="rs-header-inner">
                     <div class="rs-header-left">
                         <div class="rs-header-logo">
-                            <a href="/"><img src="{{ asset('assets/images/logo_pe.png')}}" alt="logo" width="125px"></a>
+                            <a href="/"><img id="logo-icon" src="{{ asset('assets/images/logo-pe-white.png')}}" alt="logo" width="125px"></a>
                         </div>
                     </div>
                     <div class="rs-header-menu">
@@ -78,8 +86,8 @@
                         </nav>
                     </div>
                     <div class="rs-header-right">
-                         <ul class="multipage-menu" style="color: black">Lang :
-                   </ul>    
+                         <ul class="multipage-menu">Lang :
+                        </ul>    
                         <a href="{{ url('/en') }}"> <span class="fi fi-gb" style="width: 20px; height: auto;"></span>  </a> |
                         <a href="{{ url('/id') }}"><span class="fi fi-id"  style="width: 20px; height: auto;"></span> </a>
                         <!-- sidebar start -->
@@ -119,11 +127,11 @@
                             </button>
                         </div>
                     </div>
-                    <div class="offcanvas-about mb-30 d-none d-sm-block">
+                    {{-- <div class="offcanvas-about mb-30 d-none d-sm-block">
                         <p> Industrie is a modern factory website. specifically designed for who need construction,
                             firms, oil, architecture and any other small business.
                         </p>
-                    </div>
+                    </div> --}}
                     <div class="mobile-menu">
                         <div class="rs-offcanvas-menu mb-25">
                             <nav></nav>
@@ -192,14 +200,17 @@
 
     @yield('script')
    <script>
+    window.logoUrl = "{{ asset('assets/images/logo_pe.png') }}";
+    window.logoUrlWhite = "{{ asset('assets/images/logo-pe-white.png') }}";
     document.addEventListener("DOMContentLoaded", function () {
+        
     const splash = document.getElementById("splash-screen");
     const yearText = document.getElementById("splash-year");
     let startYear = 2006;
     const endYear = 2025;
     const delay = 100; // ms per tahun
 
-    const logo = document.getElementById('splash-logo');
+    // const logo = document.getElementById('splash-logo');
 
  
     function showNextYear() {
@@ -209,31 +220,31 @@
         setTimeout(showNextYear, delay);
       } else {
             // Setelah selesai, hilangkan splash
-            // splash.style.transition = 'opacity 1.5s';
-            // splash.style.opacity = 0;
-            // setTimeout(() => splash.style.display = 'none', 1600);
-           // Munculkan logonya perlahan
-           // Ganti elemen tahun dengan logo
-            yearText.style.transition = 'opacity 0.5s';
-            yearText.style.opacity = 0; // Hilangkan teks tahun
-
-            setTimeout(() => {
-            yearText.style.display = 'none'; // Sembunyikan elemen tahun
-            logo.style.opacity = 1; // Munculkan logo
-            }, 600); // Waktu sedikit setelah tahun menghilang
-
-            // Setelah logo muncul, tutup splash
-            setTimeout(() => {
             splash.style.transition = 'opacity 1.5s';
             splash.style.opacity = 0;
             setTimeout(() => splash.style.display = 'none', 1600);
-            }, 2000); // Tunggu 4 detik sebelum splash ditutup
-            
-      }
-    }
+           // Munculkan logonya perlahan
+           // Ganti elemen tahun dengan logo
+            // yearText.style.transition = 'opacity 0.5s';
+            // yearText.style.opacity = 0; // Hilangkan teks tahun
 
-    showNextYear();
-  });
+            // setTimeout(() => {
+            // yearText.style.display = 'none'; // Sembunyikan elemen tahun
+            // logo.style.opacity = 1; // Munculkan logo
+            // }, 600); // Waktu sedikit setelah tahun menghilang
+
+            // // Setelah logo muncul, tutup splash
+            // setTimeout(() => {
+            // splash.style.transition = 'opacity 1.5s';
+            // splash.style.opacity = 0;
+            // setTimeout(() => splash.style.display = 'none', 1600);
+            // }, 2000); // Tunggu 4 detik sebelum splash ditutup
+            
+        }
+        }
+
+        showNextYear();
+    });
 </script>
 
 

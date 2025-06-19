@@ -1,5 +1,7 @@
 @extends('company.layout.main')
 
+@section('title', __('message.nav_news') ' - Pro Energi')
+
 @section('content')
      
     <!-- postbox area start -->

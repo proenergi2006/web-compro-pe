@@ -112,7 +112,7 @@
             });
     });
 
-        $('#update-article-form').on('submit', function(e) {
+        $('#update-vacancy-form').on('submit', function(e) {
         e.preventDefault(); // Mencegah form disubmit langsung
 
         // Tampilkan SweetAlert untuk konfirmasi

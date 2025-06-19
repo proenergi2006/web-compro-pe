@@ -1,5 +1,5 @@
 @extends('company.layout.main')
-
+@section('title', __('message.nav_service') . ' - Pro Energi')
 @section('css')
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 @endsection
@@ -68,7 +68,7 @@
                                                 <img src="{{ asset('assets/images/pe-service.jpg')}}" alt="image">
                                             </div> --}}
                                             <div class="rs-contact-thumb rs-image scroll_reveal reveal_left reveal-active">
-                                                <img decoding="async" src="{{ asset('assets/images/pe-service.jpg')}}" alt="image">
+                                                <img decoding="async" src="{{ asset('assets/images/service-all.jpg')}}" alt="image">
                                             </div>
                                        
                                         </div>

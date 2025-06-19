@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Pro Energi - Energy Service & Solution</title>
+    <title>@yield('title', 'Pro Energi - Energy Service & Solution')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="proenergi,minyak,perusahaan,diesel,distribusi">
